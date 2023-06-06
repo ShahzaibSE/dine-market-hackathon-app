@@ -10,13 +10,13 @@ export default function Header() {
           className="flex items-center"
         >
           <Image
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="assets/dine-market-logo.webp"
             className="h-8 mr-3"
-            alt="Flowbite Logo"
+            alt="Dine Market Store"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
-          </span>
+          {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            
+          </span> */}
         </a>
         <button
           data-collapse-toggle="navbar-default"
