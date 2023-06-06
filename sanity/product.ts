@@ -15,9 +15,14 @@ export default {
             title: "Description"
         },
         {
-            price: "price",
+            name: "price",
             type: "integer",
             title: "Price"
+        },
+        {
+            name: "category",
+            type: "string",
+            title: "Category"
         }
     ]
 }
