@@ -25,6 +25,11 @@ export default {
             name: "category",
             type: "string",
             title: "Category"
+        },
+        {
+            name: "imageUrl",
+            type: "image",
+            title: "ImageUrl"
         }
     ]
 }
