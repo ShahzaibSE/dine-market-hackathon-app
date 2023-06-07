@@ -1,4 +1,6 @@
 // sanity/pet.ts
+// Valid types are: product, array, block, boolean, datetime, date, document, 
+// email, file, geopoint, image, number, object, reference, crossDatasetReference, slug, string, telephone, text and url
 export default {
     name: 'product',
     type: 'document',
@@ -16,7 +18,7 @@ export default {
         },
         {
             name: "price",
-            type: "integer",
+            type: "number",
             title: "Price"
         },
         {
