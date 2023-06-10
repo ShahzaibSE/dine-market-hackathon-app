@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import {ShoppingCart} from "lucide-react";
 
 export default function Header() {
   return (
@@ -10,9 +12,11 @@ export default function Header() {
           className="flex items-center"
         >
           <Image
-            src="assets/dine-market-logo.webp"
-            className="h-8 mr-3"
+            src="/assets/dine-market-logo.png"
+            className="h-8 mr-3 w-auto"
             alt="Dine Market Store"
+            width={"100"}
+            height={"100"}
           />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             
@@ -53,7 +57,7 @@ export default function Header() {
                 className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                 aria-current="page"
               >
-                Home
+                Female
               </a>
             </li>
             <li>
@@ -61,7 +65,7 @@ export default function Header() {
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                About
+                Male
               </a>
             </li>
             <li>
@@ -69,7 +73,7 @@ export default function Header() {
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Services
+                Kids
               </a>
             </li>
             <li>
@@ -77,17 +81,22 @@ export default function Header() {
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Pricing
+                All Products
               </a>
             </li>
             <li>
+              <Button variant={"ghost"}>
+                <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
+              </Button>
+            </li>
+            {/* <li>
               <a
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contact
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
