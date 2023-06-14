@@ -1,7 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+// import {
+//   Disclosure,
+//   Menu,
+//   Transition,
+// } from "@headlessui/react";
 
 export default function Header() {
   return (
@@ -24,12 +29,14 @@ export default function Header() {
         </a>
 
         <div className="flex md:order-2">
-          <Button
-            variant={"secondary"}
-            className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
-          >
-            <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
-          </Button>
+          <div className="md:hidden">
+            <Button
+              variant="destructive"
+              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
+            >
+              <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
+            </Button>
+          </div>
 
           <div className="relative hidden md:block">
             <div className="absolute inset-y-0 left-0 flex items-center px-3 pointer-events-none">
@@ -54,12 +61,12 @@ export default function Header() {
               type="text"
               id="search-navbar"
               className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search..."
+              placeholder="What're you looking for?"
             />
           </div>
           <div className="md:px-4">
             <Button
-              variant={"secondary"}
+              variant="destructive"
               className="hidden md:block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
             >
               <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
