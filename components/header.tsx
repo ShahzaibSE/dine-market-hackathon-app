@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Button, buttonVariants } from "./ui/button";
+import {
+  Button,
+  buttonVariants,
+} from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 // import {
 //   Disclosure,
@@ -30,11 +33,12 @@ export default function Header() {
 
         <div className="flex md:order-2">
           <div className="md:hidden">
-            <Button
-              variant="destructive"
-              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
-            >
-              <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
+            <Button variant="secondary" className="hidden md:block rounded-md">
+              <ShoppingCart
+                size="lg"
+                fontSize="lg"
+                className="h-4 w-4 font-bold"
+              />
             </Button>
           </div>
 
@@ -65,11 +69,11 @@ export default function Header() {
             />
           </div>
           <div className="md:px-4">
-            <Button
-              variant="destructive"
-              className="hidden md:block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
-            >
-              <ShoppingCart className="mr-2 h-4 w-4 font-bold" />
+            <Button variant="secondary" size="lg">
+              <ShoppingCart
+                size="lg"
+                className="h-4 w-4 font-bold"
+              />
             </Button>
           </div>
           <button
@@ -135,14 +139,6 @@ export default function Header() {
                 All Products
               </a>
             </li>
-            {/* <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                Contact
-              </a>
-            </li> */}
           </ul>
         </div>
       </div>
