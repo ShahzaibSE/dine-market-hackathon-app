@@ -35,8 +35,8 @@ export default function Header() {
         </a>
 
         <div className="flex md:order-2">
-          <div className="md:hidden">
-            <div className="relative py-1">
+          {/* <div className="md:hidden">
+            <div className="relative py-2">
               <div className="t-0 absolute left-3">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
                   3
@@ -57,22 +57,7 @@ export default function Header() {
                 />
               </svg>
             </div>
-            {/* <Link
-              href=""
-              className={badgeVariants({
-                variant: "destructive",
-              })}
-            >
-              {badge.toString()}
-            </Link> */}
-            {/* <Button variant="secondary" className="hidden md:block rounded-md">
-              <ShoppingCart
-                size="lg"
-                fontSize="lg"
-                className="h-4 w-4 font-bold"
-              />
-            </Button> */}
-          </div>
+          </div> */}
 
           <div className="relative py-2 hidden md:block">
             <div className="absolute inset-y-0 left-0 flex items-center px-3 pointer-events-none">
