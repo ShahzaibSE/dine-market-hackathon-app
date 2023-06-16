@@ -5,6 +5,7 @@ import {
   buttonVariants,
 } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 // import {
 //   Disclosure,
 //   Menu,
