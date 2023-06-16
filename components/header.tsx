@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Button,
@@ -14,7 +15,9 @@ import { badgeVariants } from "./ui/badge";
 // } from "@headlessui/react";
 
 export default function Header() {
-  let badge: number = 0;
+  let cart_items: number = 0;
+  const [isNavigate, setNavigate] =
+    useState(false);
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -89,7 +92,7 @@ export default function Header() {
             <div className="absolute pb-2">
               <div className="t-0 absolute left-3">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-                  3
+                  {cart_items}
                 </p>
               </div>
               <svg
@@ -128,6 +131,7 @@ export default function Header() {
             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-search"
             aria-expanded="false"
+            onClick={()=>setNavigate(!isNavigate)}
           >
             <span className="sr-only">
               Open menu
@@ -187,6 +191,47 @@ export default function Header() {
             </li>
           </ul>
         </div>
+      </div>
+      <div
+          className={`md:flex md:items-center md:w-auto lg:flex lg:items-center lg:w-auto w-full ${
+            isNavigate ? "block" : "hidden"
+          }`}
+      >
+        <ul className={`${isNavigate ? "block": "hidden"} font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700`}>
+          <li>
+            <a
+              href="#"
+              className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+              aria-current="page"
+            >
+              Female
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            >
+              Male
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            >
+              Kids
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            >
+              All Products
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
