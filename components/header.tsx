@@ -6,6 +6,7 @@ import {
 } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import { badgeVariants } from "./ui/badge";
 // import {
 //   Disclosure,
 //   Menu,
@@ -13,6 +14,7 @@ import Link from "next/link";
 // } from "@headlessui/react";
 
 export default function Header() {
+  let badge: number = 0;
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -34,13 +36,21 @@ export default function Header() {
 
         <div className="flex md:order-2">
           <div className="md:hidden">
-            <Button variant="secondary" className="hidden md:block rounded-md">
+            <Link
+              href=""
+              className={badgeVariants({
+                variant: "destructive",
+              })}
+            >
+              {badge.toString()}
+            </Link>
+            {/* <Button variant="secondary" className="hidden md:block rounded-md">
               <ShoppingCart
                 size="lg"
                 fontSize="lg"
                 className="h-4 w-4 font-bold"
               />
-            </Button>
+            </Button> */}
           </div>
 
           <div className="relative hidden md:block">
@@ -69,13 +79,21 @@ export default function Header() {
               placeholder="What're you looking for?"
             />
           </div>
-          <div className="md:px-4">
-            <Button variant="secondary" size="lg">
+          <div className="hidden md:block md:px-4">
+            <Link
+              href=""
+              className={badgeVariants({
+                variant: "destructive",
+              })}
+            >
+              {badge.toString()}
+            </Link>
+            {/* <Button variant="secondary" size="lg">
               <ShoppingCart
                 size="lg"
                 className="h-4 w-4 font-bold"
               />
-            </Button>
+            </Button> */}
           </div>
           <button
             data-collapse-toggle="navbar-search"
