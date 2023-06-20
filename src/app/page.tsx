@@ -8,7 +8,7 @@ export default function Home() {
       <header>
         <Header />
       </header>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="flex flex-wrap min-h-screen p-12 md:p-24">
         <HomeComponent />
       </main>
     </div>
