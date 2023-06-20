@@ -88,6 +88,7 @@ export default function Header() {
               placeholder="What're you looking for?"
             />
           </div>
+
           <div className="hidden md:block md:px-4">
             <div className="absolute pb-2">
               <div className="t-0 absolute left-3">
@@ -110,20 +111,6 @@ export default function Header() {
                 />
               </svg>
             </div>
-            {/* <Link
-              href=""
-              className={badgeVariants({
-                variant: "destructive",
-              })}
-            >
-              {badge.toString()}
-            </Link> */}
-            {/* <Button variant="secondary" size="lg">
-              <ShoppingCart
-                size="lg"
-                className="h-4 w-4 font-bold"
-              />
-            </Button> */}
           </div>
           <button
             data-collapse-toggle="navbar-search"
@@ -131,7 +118,9 @@ export default function Header() {
             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-search"
             aria-expanded="false"
-            onClick={()=>setNavigate(!isNavigate)}
+            onClick={() =>
+              setNavigate(!isNavigate)
+            }
           >
             <span className="sr-only">
               Open menu
@@ -193,15 +182,46 @@ export default function Header() {
         </div>
       </div>
       <div
-          className={`md:flex md:items-center md:w-auto lg:flex lg:items-center lg:w-auto w-full ${
-            isNavigate ? "block" : "hidden"
-          }`}
+        className={`md:flex md:items-center md:w-auto lg:flex lg:items-center lg:w-auto w-full bg-blend-normal ${
+          isNavigate ? "block" : "hidden"
+        }`}
       >
-        <ul className={`${isNavigate ? "block": "hidden"} font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700`}>
+        <ul
+          className={`${
+            isNavigate ? "block" : "hidden"
+          } font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700`}
+        >
+          <li>
+            <div
+              className={`md:px-4`}
+            >
+              <div className="relative py-2 flex justify-end">
+                <div className="t-0 relative left-3 bottom-1">
+                  <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+                    {cart_items}
+                  </p>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="file: mt-4 h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </li>
           <li>
             <a
               href="#"
-              className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+              className="block py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
               aria-current="page"
             >
               Female
