@@ -1,9 +1,10 @@
 import React from "react";
+import Image from "next/image";
 
 export default function HomeComponent() {
   return (
-    <div>
-      <div className="flex flex-col justify-around items-start w-full md:space-x-4 md:w-2/4">
+    <div className="flex flex-col justify-start item-start md:flex-row md:justify-start md:items-start md:space-x-20">
+      <div className="flex flex-col justify-around items-start w-full md:w-2/4">
         <div className="flex flex-col justify-start items-start">
           <div className="h-10 w-32 bg-blue-100 rounded-sm flex justify-center items-center">
             <p className="text-blue-600 font-bold">
@@ -23,8 +24,10 @@ export default function HomeComponent() {
             </p>
           </div>
         </div>
-        <div className="flex">
-          <div className="flex md:w-[600px] md:h-[600px] md:bg-orange-300"></div>
+      </div>
+      <div>
+        <div className="hidden md:flex md:relative md:bottom-14 md:justify-start md:items-start md:w-[600px] md:h-[600px] md:rounded-full md:bg-orange-200">
+          {/* <Image src="/assets/homepage-picture.webp" alt="dine market front image" width="100" height="100"/> */}
         </div>
       </div>
     </div>
