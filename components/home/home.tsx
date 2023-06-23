@@ -98,6 +98,47 @@ export default function HomeComponent() {
           </h1>
         </div>
       </div>
+
+      <div className="flex flex-row flex-wrap">
+        <div className="flex flex-col">
+          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center">
+            <div className="flex flex-col p-12">
+              <h3 className="font-bold text-2xl leading-6">
+                GET UP TO <span>60%</span>
+              </h3>
+              <p className="tracking-wider text-xl">
+                For the summer season
+              </p>
+            </div>
+            <div className="flex">
+              <Image
+                alt="event female pic"
+                src="/assets/event-female-pic.webp"
+                width="300"
+                height="250"
+              />
+            </div>
+          </div>
+          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center">
+            <div className="flex flex-col p-12">
+              <h3 className="font-bold text-2xl leading-6">
+                GET UP TO <span>60%</span>
+              </h3>
+              <p className="tracking-wider text-xl">
+                For the summer season
+              </p>
+            </div>
+            <div className="flex">
+              <Image
+                alt="event female pic"
+                src="/assets/event-female-pic.webp"
+                width="300"
+                height="250"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
