@@ -34,6 +34,44 @@ export default function HomeComponent() {
                 </span>
               </Button>
             </div>
+            <div className="flex flex-row flex-wrap justify-between items-center gap-6 mt-8">
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="Featured Store 1"
+                  src="/assets/Featured1.webp"
+                  width="100"
+                  height="35"
+                />
+              </div>
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="Featured Store 2"
+                  src="/assets/Featured2.webp"
+                  width="100"
+                  height="35"
+                />
+              </div>
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="Featured Store 3"
+                  src="/assets/Featured3.webp"
+                  width="100"
+                  height="35"
+                />
+              </div>
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="Featured Store 4"
+                  src="/assets/Featured4.webp"
+                  width="100"
+                  height="35"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div>
@@ -48,12 +86,16 @@ export default function HomeComponent() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-10">
+      <div className="flex flex-col mt-24 md:mt-10">
         <div className="flex justify-center items-start">
-          <p className="font-bold text-blue-600 text-base">PROMOTIONS</p>
+          <p className="font-bold text-blue-600 text-base">
+            PROMOTIONS
+          </p>
         </div>
-        <div className="flex justify-center items-start">
-          <h1 className="text-3xl font-bold tracking-wider md:text-4xl">Our Promotions Events</h1>
+        <div className="flex justify-center items-start text-center md:m-4">
+          <h1 className="text-3xl font-bold tracking-wider md:text-4xl">
+            Our Promotions Events
+          </h1>
         </div>
       </div>
     </div>
