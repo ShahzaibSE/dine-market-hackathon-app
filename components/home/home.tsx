@@ -104,7 +104,7 @@ export default function HomeComponent() {
           <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
             <div className="flex flex-col p-12">
               <h3 className="font-bold text-2xl leading-6">
-                GET UP TO <span>60%</span>
+                <span className="text-2xl font-bold">GET UP TO</span> <span className="font-bold text-3xl">60%</span>
               </h3>
               <p className="tracking-wider text-xl">
                 For the summer season
@@ -119,23 +119,26 @@ export default function HomeComponent() {
               />
             </div>
           </div>
-          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center">
-            <div className="flex flex-col p-12">
-              <h3 className="font-bold text-2xl leading-6">
+          <div className="bg-black flex flex-row flex-wrap justify-center items-center py-12 md:p-0">
+            <div className="flex flex-col md:p-12">
+              <h3 className="font-bold text-2xl md:text-4xl text-white text-center md:leading-9">
                 GET UP TO <span>60%</span>
               </h3>
-              <p className="tracking-wider text-xl">
-                For the summer season
+              <p className="md:tracking-wider text-center md:text-sm mt-3 text-white">
+                USE PROMO CODE
               </p>
+              <Button variant="secondary" className="mt-2">
+                <span className="tracking-wider font-bold text-lg">DINEWEEKENDSALE</span>
+              </Button>
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <Image
                 alt="event female pic"
                 src="/assets/event-female-pic.webp"
                 width="250"
                 height="220"
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
