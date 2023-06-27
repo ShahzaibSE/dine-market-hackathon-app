@@ -86,7 +86,7 @@ export default function HomeComponent() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-24 md:mt-10">
+      <div className="flex flex-col mt-24 mb-10 md:mt-10">
         <div className="flex justify-center items-start">
           <p className="font-bold text-blue-600 text-base">
             PROMOTIONS
@@ -99,9 +99,9 @@ export default function HomeComponent() {
         </div>
       </div>
 
-      <div className="flex flex-row flex-wrap">
-        <div className="flex flex-col">
-          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center">
+      <div className="flex flex-col flex-wrap md:flex-row gap-8">
+        <div className="flex flex-col gap-6">
+          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
             <div className="flex flex-col p-12">
               <h3 className="font-bold text-2xl leading-6">
                 GET UP TO <span>60%</span>
@@ -114,8 +114,8 @@ export default function HomeComponent() {
               <Image
                 alt="event female pic"
                 src="/assets/event-female-pic.webp"
-                width="300"
-                height="250"
+                width="250"
+                height="220"
               />
             </div>
           </div>
@@ -132,8 +132,54 @@ export default function HomeComponent() {
               <Image
                 alt="event female pic"
                 src="/assets/event-female-pic.webp"
-                width="300"
-                height="250"
+                width="250"
+                height="220"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col bg-orange-200 p-8 gap-10">
+            <div className="flex flex-col">
+              <p>Flex Sweatshirt</p>
+              <p>
+                <span className="line-through">
+                  $100.00
+                </span>
+                <span className="font-bold text-lg">
+                  {" "}
+                  $75.00
+                </span>
+              </p>
+            </div>
+            <div>
+              <Image
+                alt="event male 1 picture"
+                src="/assets/event-male1-pic.webp"
+                width="240"
+                height="210"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col bg-gray-400 p-6 gap-10">
+            <div className="flex flex-col">
+              <p>Flex Push Button Bomber</p>
+              <p>
+                <span className="line-through">
+                  $225.00
+                </span>
+                <span className="font-bold text-lg">
+                  {" "}
+                  $190.00
+                </span>
+              </p>
+            </div>
+            <div>
+              <Image
+                alt="event male 2 picture"
+                src="/assets/event-male2-pic.webp"
+                width="240"
+                height="210"
               />
             </div>
           </div>
