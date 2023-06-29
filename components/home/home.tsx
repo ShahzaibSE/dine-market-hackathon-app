@@ -1,10 +1,10 @@
+"use client";
 import React, { useRef, useState } from "react";
-// Import Swiper React components
-// import {
-//   Swiper,
-//   SwiperSlide,
-// } from "swiper/react";
-// import { Pagination } from "swiper";
+import {
+  Swiper,
+  SwiperSlide,
+} from "swiper/react";
+import { Pagination } from "swiper";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
@@ -17,8 +17,9 @@ import {
   CardTitle,
 } from "./../ui/card";
 //
-// import "swiper/css";
+import "swiper/css";
 // import "swiper/css/navigation";
+import HomeSlider from "./home_slider";
 
 export default function HomeComponent() {
   return (
@@ -257,7 +258,58 @@ export default function HomeComponent() {
             </div>
           </CardFooter>
         </Card>
+
+        <Card>
+          <CardContent>
+            <div className="flex justify-center items-center">
+              <Image
+                alt="female-brushed-reglan-sweatshirt"
+                src="/assets/female-clothes/cameryn-sash-tie-dress-1.png"
+                width="300"
+                height="320"
+                className="max-w-full"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="flex flex-col justify-between items-center gap-2">
+              <h3 className="font-bold text-2xl md:3xl">
+                Cameryn Sash Tie Dress
+              </h3>
+              <h3 className="font-bold text-2xl md:3xl">
+                $545
+              </h3>
+            </div>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <div className="flex justify-center items-center">
+              <Image
+                alt="female-brushed-reglan-sweatshirt"
+                src="/assets/female-clothes/female-flex-sweatshirt.png"
+                width="300"
+                height="320"
+                className="max-w-full"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="flex flex-col justify-between items-center gap-2">
+              <h3 className="font-bold text-2xl md:3xl">
+                Flex Sweatshirt
+              </h3>
+              <h3 className="font-bold text-2xl md:3xl">
+                $175
+              </h3>
+            </div>
+          </CardFooter>
+        </Card>
       </div>
+      {/* <div>
+        <HomeSlider />
+      </div> */}
     </div>
   );
 }
