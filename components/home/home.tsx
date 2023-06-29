@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+// import {
+//   Swiper,
+//   SwiperSlide,
+// } from "swiper/react";
+// import { Pagination } from "swiper";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./../ui/card";
+//
+// import "swiper/css";
+// import "swiper/css/navigation";
 
 export default function HomeComponent() {
   return (
@@ -86,7 +103,8 @@ export default function HomeComponent() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-24 mb-10 md:mt-10">
+
+      <div className="flex flex-col mt-24 mb-10 md:mt-28">
         <div className="flex justify-center items-start">
           <p className="font-bold text-blue-600 text-base">
             PROMOTIONS
@@ -104,7 +122,12 @@ export default function HomeComponent() {
           <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
             <div className="flex flex-col p-12">
               <h3 className="font-bold text-2xl leading-6">
-                <span className="text-2xl font-bold">GET UP TO</span> <span className="font-bold text-3xl">60%</span>
+                <span className="text-2xl font-bold">
+                  GET UP TO
+                </span>{" "}
+                <span className="font-bold text-3xl">
+                  60%
+                </span>
               </h3>
               <p className="tracking-wider text-xl">
                 For the summer season
@@ -127,8 +150,13 @@ export default function HomeComponent() {
               <p className="md:tracking-wider text-center md:text-sm mt-3 text-white">
                 USE PROMO CODE
               </p>
-              <Button variant="secondary" className="mt-2">
-                <span className="tracking-wider font-bold text-lg">DINEWEEKENDSALE</span>
+              <Button
+                variant="secondary"
+                className="mt-2"
+              >
+                <span className="tracking-wider font-bold text-lg">
+                  DINEWEEKENDSALE
+                </span>
               </Button>
             </div>
             {/* <div className="flex">
@@ -187,6 +215,48 @@ export default function HomeComponent() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="flex flex-col mt-24 md:mt-28">
+        <div className="flex justify-center items-start">
+          <p className="font-bold text-blue-600 text-base">
+            PRODUCTS
+          </p>
+        </div>
+        <div className="flex justify-center items-start text-center md:m-4">
+          <h1 className="text-3xl font-bold tracking-wider md:text-4xl">
+            Check What We Have
+          </h1>
+        </div>
+      </div>
+
+      <div
+        id="featured-products"
+        className="flex flex-col md:flex-row justify-between items-center my-12"
+      >
+        <Card>
+          <CardContent>
+            <div className="flex justify-center items-center">
+              <Image
+                alt="female-brushed-reglan-sweatshirt"
+                src="/assets/female-clothes/female-brushed-raglan-sweatshirt.png"
+                width="300"
+                height="320"
+                className="max-w-full"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="flex flex-col justify-between items-center gap-2">
+              <h3 className="font-bold text-2xl md:3xl">
+                Brushed Reglan Sweatshirt
+              </h3>
+              <h3 className="font-bold text-2xl md:3xl">
+                $195
+              </h3>
+            </div>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   );
