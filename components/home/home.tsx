@@ -314,6 +314,55 @@ export default function HomeComponent() {
           </Card>
         </motion.div>
       </div>
+
+      <div className="flex flex-col justify-start items-start gap-4 mt-20 md:w-6/12">
+        <div>
+          {/* <div className="z-10">
+            <h1 className="text-3xl text-gray-300">
+              Different From Others
+            </h1>
+          </div> */}
+          <div className="flex flex-col justify-between items-start gap-2 my-3">
+            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+              Using Good Quality Materials
+            </h3>
+            <p className="text-md text-justify">
+              Lorem ipsum dolor sit amt,
+              consectetur adipiscing elit.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-between items-start gap-2 my-3">
+            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+              Using Good Quality Materials
+            </h3>
+            <p className="text-md text-justify">
+              Lorem ipsum dolor sit amt,
+              consectetur adipiscing elit.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-between items-start gap-2 my-3">
+            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+              Using Good Quality Materials
+            </h3>
+            <p className="text-md text-justify">
+              Lorem ipsum dolor sit amt,
+              consectetur adipiscing elit.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-between items-start my-3">
+            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+              Using Good Quality Materials
+            </h3>
+            <p className="text-md text-justify">
+              Lorem ipsum dolor sit amt,
+              consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+      </div>
       {/* <div>
         <HomeSlider />
       </div> */}
