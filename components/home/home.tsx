@@ -315,10 +315,10 @@ export default function HomeComponent() {
         </motion.div>
       </div>
 
-      <div className="flex flex-col justify-center md:justify-start items-start gap-4 mt-20 md:w-6/12">
+      <div className="flex flex-col justify-end md:justify-start items-start gap-4 mt-20 md:w-6/12">
         <div className="grid grid-rows-2 grid-flow-col gap-10">
           <div className="z-10 absolute">
-            <h1 className="font-bold text-8xl opacity-25 text-gray-300 tracking-widest">
+            <h1 className="font-bold text-7xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
               Different <br/> From <br/> Others
             </h1>
           </div>
