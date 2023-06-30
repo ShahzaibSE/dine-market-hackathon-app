@@ -315,48 +315,48 @@ export default function HomeComponent() {
         </motion.div>
       </div>
 
-      <div className="flex flex-col justify-start items-start gap-4 mt-20 md:w-6/12">
-        <div>
-          {/* <div className="z-10">
-            <h1 className="text-3xl text-gray-300">
-              Different From Others
+      <div className="flex flex-col justify-center md:justify-start items-start gap-4 mt-20 md:w-6/12">
+        <div className="grid grid-rows-2 grid-flow-col gap-10">
+          <div className="z-10 absolute">
+            <h1 className="font-bold text-8xl opacity-25 text-gray-300 tracking-widest">
+              Different <br/> From <br/> Others
             </h1>
-          </div> */}
+          </div>
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start md:text-lg leading-6">
               Using Good Quality Materials
             </h3>
-            <p className="text-md text-justify">
+            <p className="text-lg tracking-normal text-start">
               Lorem ipsum dolor sit amt,
               consectetur adipiscing elit.
             </p>
           </div>
 
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start md:text-lg leading-6">
               Using Good Quality Materials
             </h3>
-            <p className="text-md text-justify">
+            <p className="text-lg tracking-normal text-start">
               Lorem ipsum dolor sit amt,
               consectetur adipiscing elit.
             </p>
           </div>
 
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start md:text-lg leading-6">
               Using Good Quality Materials
             </h3>
-            <p className="text-md text-justify">
+            <p className="text-lg tracking-normal text-start">
               Lorem ipsum dolor sit amt,
               consectetur adipiscing elit.
             </p>
           </div>
 
           <div className="flex flex-col justify-between items-start my-3">
-            <h3 className="font-bold text-md text-justify md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start md:text-lg leading-6">
               Using Good Quality Materials
             </h3>
-            <p className="text-md text-justify">
+            <p className="text-lg tracking-normal text-start">
               Lorem ipsum dolor sit amt,
               consectetur adipiscing elit.
             </p>
