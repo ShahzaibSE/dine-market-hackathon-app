@@ -424,7 +424,7 @@ export default function HomeComponent() {
         </div>
       </div>
       
-      <div className="flex justify-center items-center my-40">
+      <div className="flex justify-center items-center my-20 md:my-40">
         <div className="-z-10 absolute">
           <h1 className="font-bold text-7xl md:text-9xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
             Newsletter
