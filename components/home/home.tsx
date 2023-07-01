@@ -323,8 +323,15 @@ export default function HomeComponent() {
         </motion.div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-end md:justify-center items-start gap-10 mt-20">
-        <div className="grid grid-rows-2 grid-flow-col gap-10 relative md:top-40">
+      <div className="flex flex-col justify-end items-end mt-20">
+        <h1 className="font-bold text-5xl">
+          Unique and Authentic <br /> Vintage
+          Designer <br /> Jewellery
+        </h1>
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-end md:justify-center items-start gap-10 mt-10">
+        <div className="grid grid-rows-2 grid-flow-col gap-10 relative md:top-4">
           <div className="z-10 absolute">
             <h1 className="font-bold text-7xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
               Different <br /> From <br /> Others
@@ -372,12 +379,12 @@ export default function HomeComponent() {
         </div>
 
         <div className="flex flex-col justify-end items-end gap-4">
-          <div className="flex">
+          {/* <div className="flex">
             <h1 className="font-bold text-5xl">
               Unique and Authentic <br /> Vintage
               Designer <br /> Jewellery
             </h1>
-          </div>
+          </div> */}
 
           <div className="flex flex-col md:flex-row justify-end items-center gap-8 mt-6">
             <div className="flex">
