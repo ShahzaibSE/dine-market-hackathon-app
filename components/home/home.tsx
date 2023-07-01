@@ -24,7 +24,7 @@ import HomeSlider from "./home_slider";
 
 export default function HomeComponent() {
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="flex flex-col justify-start item-start md:flex-row md:justify-start md:items-start md:space-x-20">
         <div className="flex flex-col justify-around items-start w-full md:w-2/4">
           <div className="flex flex-col justify-start items-start">
@@ -121,47 +121,50 @@ export default function HomeComponent() {
 
       <div className="flex flex-col flex-wrap md:flex-row gap-8">
         <div className="flex flex-col gap-6">
-          <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
-            <div className="flex flex-col p-12">
-              <h3 className="font-bold text-2xl leading-6">
-                <span className="text-2xl font-bold">
-                  GET UP TO
-                </span>{" "}
-                <span className="font-bold text-3xl">
-                  60%
-                </span>
-              </h3>
-              <p className="tracking-wider text-xl">
-                For the summer season
-              </p>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
+              <div className="flex flex-col p-12">
+                <h3 className="font-bold text-2xl leading-6">
+                  <span className="text-2xl font-bold">
+                    GET UP TO
+                  </span>{" "}
+                  <span className="font-bold text-3xl">
+                    60%
+                  </span>
+                </h3>
+                <p className="tracking-wider text-xl">
+                  For the summer season
+                </p>
+              </div>
+              <div className="flex">
+                <Image
+                  alt="event female pic"
+                  src="/assets/event-female-pic.webp"
+                  width="250"
+                  height="220"
+                />
+              </div>
             </div>
-            <div className="flex">
-              <Image
-                alt="event female pic"
-                src="/assets/event-female-pic.webp"
-                width="250"
-                height="220"
-              />
-            </div>
-          </div>
-          <div className="bg-black flex flex-row flex-wrap justify-center items-center py-12 md:p-0">
-            <div className="flex flex-col md:p-12">
-              <h3 className="font-bold text-2xl md:text-4xl text-white text-center md:leading-9">
-                GET UP TO <span>60%</span>
-              </h3>
-              <p className="md:tracking-wider text-center md:text-sm mt-3 text-white">
-                USE PROMO CODE
-              </p>
-              <Button
-                variant="secondary"
-                className="mt-2"
-              >
-                <span className="tracking-wider font-bold text-lg">
-                  DINEWEEKENDSALE
-                </span>
-              </Button>
-            </div>
-            {/* <div className="flex">
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <div className="bg-black flex flex-row flex-wrap justify-center items-center py-12 md:p-0">
+              <div className="flex flex-col md:p-12">
+                <h3 className="font-bold text-2xl md:text-4xl text-white text-center md:leading-9">
+                  GET UP TO <span>60%</span>
+                </h3>
+                <p className="md:tracking-wider text-center md:text-sm mt-3 text-white">
+                  USE PROMO CODE
+                </p>
+                <Button
+                  variant="secondary"
+                  className="mt-2"
+                >
+                  <span className="tracking-wider font-bold text-lg">
+                    DINEWEEKENDSALE
+                  </span>
+                </Button>
+              </div>
+              {/* <div className="flex">
               <Image
                 alt="event female pic"
                 src="/assets/event-female-pic.webp"
@@ -169,53 +172,58 @@ export default function HomeComponent() {
                 height="220"
               />
             </div> */}
-          </div>
+            </div>
+          </motion.div>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-col bg-orange-200 p-8 gap-10">
-            <div className="flex flex-col">
-              <p>Flex Sweatshirt</p>
-              <p>
-                <span className="line-through">
-                  $100.00
-                </span>
-                <span className="font-bold text-lg">
-                  {" "}
-                  $75.00
-                </span>
-              </p>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <div className="flex flex-col bg-orange-200 p-8 gap-10">
+              <div className="flex flex-col">
+                <p>Flex Sweatshirt</p>
+                <p>
+                  <span className="line-through">
+                    $100.00
+                  </span>
+                  <span className="font-bold text-lg">
+                    {" "}
+                    $75.00
+                  </span>
+                </p>
+              </div>
+              <div>
+                <Image
+                  alt="event male 1 picture"
+                  src="/assets/event-male1-pic.webp"
+                  width="240"
+                  height="210"
+                />
+              </div>
             </div>
-            <div>
-              <Image
-                alt="event male 1 picture"
-                src="/assets/event-male1-pic.webp"
-                width="240"
-                height="210"
-              />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <div className="flex flex-col bg-gray-400 p-6 gap-10">
+              <div className="flex flex-col">
+                <p>Flex Push Button Bomber</p>
+                <p>
+                  <span className="line-through">
+                    $225.00
+                  </span>
+                  <span className="font-bold text-lg">
+                    {" "}
+                    $190.00
+                  </span>
+                </p>
+              </div>
+              <div>
+                <Image
+                  alt="event male 2 picture"
+                  src="/assets/event-male2-pic.webp"
+                  width="240"
+                  height="210"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col bg-gray-400 p-6 gap-10">
-            <div className="flex flex-col">
-              <p>Flex Push Button Bomber</p>
-              <p>
-                <span className="line-through">
-                  $225.00
-                </span>
-                <span className="font-bold text-lg">
-                  {" "}
-                  $190.00
-                </span>
-              </p>
-            </div>
-            <div>
-              <Image
-                alt="event male 2 picture"
-                src="/assets/event-male2-pic.webp"
-                width="240"
-                height="210"
-              />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -316,7 +324,7 @@ export default function HomeComponent() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-end md:justify-center items-start gap-10 mt-20">
-        <div className="grid grid-rows-2 grid-flow-col gap-10 pt-10">
+        <div className="grid grid-rows-2 grid-flow-col gap-10 relative md:top-40">
           <div className="z-10 absolute">
             <h1 className="font-bold text-7xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
               Different <br /> From <br /> Others
@@ -370,16 +378,20 @@ export default function HomeComponent() {
               Designer <br /> Jewellery
             </h1>
           </div>
-          <br/>
-          <div className="flex flex-col md:flex-row justify-end items-center gap-8">
+
+          <div className="flex flex-col md:flex-row justify-end items-center gap-8 mt-6">
             <div className="flex">
-              <Image
-                className="aspect-auto"
-                alt="featured-unique-picture"
-                src="/assets/feature-unique-pic.webp"
-                width={300}
-                height={350}
-              />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
+                <Image
+                  className="aspect-auto"
+                  alt="featured-unique-picture"
+                  src="/assets/feature-unique-pic.webp"
+                  width={300}
+                  height={350}
+                />
+              </motion.div>
             </div>
             <div className="flex flex-col justify-start items-start md:w-2/5">
               <div className="flex">
@@ -404,7 +416,7 @@ export default function HomeComponent() {
           </div>
         </div>
       </div>
-      <br/>
+      <br />
       {/* <div>
         <HomeSlider />
       </div> */}
