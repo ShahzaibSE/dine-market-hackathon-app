@@ -423,7 +423,19 @@ export default function HomeComponent() {
           </div>
         </div>
       </div>
-      <br />
+      
+      <div className="flex justify-center items-center my-40">
+        <div className="z-10 absolute">
+          <h1 className="font-bold text-8xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
+            Newsletter
+          </h1>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-6">
+          <h1 className="font-bold text-2xl text-center tracking-wide">Subscribe Our Newsletter</h1>
+          <p className="text-md">Get the latest information and promo offers directly</p>
+          {/* <div className="flex flex-row justify-center items-center"></div> */}
+        </div>
+      </div>
       {/* <div>
         <HomeSlider />
       </div> */}
