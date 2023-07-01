@@ -315,11 +315,11 @@ export default function HomeComponent() {
         </motion.div>
       </div>
 
-      <div className="flex flex-col justify-end md:justify-start items-start gap-4 mt-20 md:w-6/12">
-        <div className="grid grid-rows-2 grid-flow-col gap-10">
+      <div className="flex flex-col md:flex-row justify-end md:justify-center items-start gap-10 mt-20">
+        <div className="grid grid-rows-2 grid-flow-col gap-10 pt-10">
           <div className="z-10 absolute">
             <h1 className="font-bold text-7xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
-              Different <br/> From <br/> Others
+              Different <br /> From <br /> Others
             </h1>
           </div>
           <div className="flex flex-col justify-between items-start gap-2 my-3">
@@ -362,7 +362,49 @@ export default function HomeComponent() {
             </p>
           </div>
         </div>
+
+        <div className="flex flex-col justify-end items-end gap-4">
+          <div className="flex">
+            <h1 className="font-bold text-5xl">
+              Unique and Authentic <br /> Vintage
+              Designer <br /> Jewellery
+            </h1>
+          </div>
+          <br/>
+          <div className="flex flex-col md:flex-row justify-end items-center gap-8">
+            <div className="flex">
+              <Image
+                className="aspect-auto"
+                alt="featured-unique-picture"
+                src="/assets/feature-unique-pic.webp"
+                width={300}
+                height={350}
+              />
+            </div>
+            <div className="flex flex-col justify-start items-start md:w-2/5">
+              <div className="flex">
+                <p className="tracking-wide text-md leading-6 text-justify">
+                  This piece is ethically crafted
+                  in our small family-owned
+                  workshop in Peru with unmatched
+                  attention to detail and care.
+                  The Natural color is the actual
+                  natural color of the fiber,
+                  undyed and 100% traceable.
+                </p>
+              </div>
+              <div className="flex justify-start items-start py-8">
+                <Button>
+                  <span className="font-bold">
+                    Start Shopping
+                  </span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <br/>
       {/* <div>
         <HomeSlider />
       </div> */}
