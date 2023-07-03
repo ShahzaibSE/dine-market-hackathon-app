@@ -17,6 +17,11 @@ const product = {
       title: "Description",
     },
     {
+      name: "gender",
+      type: "string",
+      title: "Gender"
+    },
+    {
       name: "price",
       type: "string",
       title: "Price",
