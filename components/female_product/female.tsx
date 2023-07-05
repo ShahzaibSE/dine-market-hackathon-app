@@ -11,7 +11,10 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function FemaleComponent() {
+export default function FemaleComponent(props: any) {
+  const {female_products} = props;
+  console.log("Getting female products on the page");
+  console.log(female_products);
   //
   return (
     <div className="flex flex-wrap justify-between items-center">

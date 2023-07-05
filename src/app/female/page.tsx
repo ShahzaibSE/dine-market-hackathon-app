@@ -18,14 +18,13 @@ export const getFemaleProducts =
 
 export default async function FemalePage() {
   const femaleProducts = await getFemaleProducts();
-  console.log(femaleProducts);
   return (
     <div>
       <header>
         <Header />
       </header>
       <main className="flex flex-wrap p-12 md:p-24">
-        <FemaleComponent />
+        <FemaleComponent female_products={femaleProducts}/>
       </main>
       <footer>
         <Footer />
