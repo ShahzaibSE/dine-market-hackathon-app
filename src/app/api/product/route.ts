@@ -8,12 +8,15 @@ import { client } from "../../../../sanity/lib/client";
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const products = await client.fetch(`*[_type == 'product' && gender == ${searchParams.get("gender")}] `);
+    const products = await client.fetch(`*[_type == 'product' && gender == 'female'] `);
     return NextResponse.json({
         status: true,
         data: products
     });
   } catch (err) {
-    throw err;
+     return NextResponse.json({
+      status: false,
+      message: "No Products"
+     })
   }
 }

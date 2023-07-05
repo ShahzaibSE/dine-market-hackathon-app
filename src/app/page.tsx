@@ -3,7 +3,7 @@ import HomeComponent from "../../components/home/home";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <header>
