@@ -34,11 +34,11 @@ export interface Product {
 
 export default function ProductCard(props: {product: Product}) {
   const {name , gender, price, imageUrl } = props.product;
-  console.log("Product information");
-  console.log(name);
-  console.log(gender);
-  console.log(price);
-  console.log(imageUrl);
+  // console.log("Product information");
+  // console.log(name);
+  // console.log(gender);
+  // console.log(price);
+  // console.log(imageUrl);
   return (
     <div>
       <motion.div whileHover={{ scale: 1.1 }}>

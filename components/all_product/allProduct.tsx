@@ -1,10 +1,10 @@
 "use client";
 import ProductCard from "./../product/productCard";
 
-export default function FemaleComponent(
+export default function AllProductComponent(
   props: any
 ) {
-  const { female_products } = props;
+  const { all_products } = props;
   //
   return (
     <div className="flex flex-wrap justify-between items-center gap-4">
@@ -36,7 +36,7 @@ export default function FemaleComponent(
         </motion.div>
       </div> */}
       <>
-        {female_products.map(
+        {all_products.map(
           (product: any, index: number) => (
             <ProductCard
               key={index}
