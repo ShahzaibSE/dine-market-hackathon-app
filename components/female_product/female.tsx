@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import {
   Card,
@@ -10,15 +10,16 @@ import {
 } from "../ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import ProductCard from "./../product/productCard";
 
-export default function FemaleComponent(props: any) {
-  const {female_products} = props;
-  console.log("Getting female products on the page");
-  console.log(female_products);
+export default function FemaleComponent(
+  props: any
+) {
+  const { female_products } = props;
   //
   return (
-    <div className="flex flex-wrap justify-between items-center">
-      <div>
+    <div className="flex flex-wrap justify-between items-center gap-4">
+      {/* <div>
         <motion.div whileHover={{ scale: 1.1 }}>
           <Card>
             <CardContent>
@@ -44,7 +45,17 @@ export default function FemaleComponent(props: any) {
             </CardFooter>
           </Card>
         </motion.div>
-      </div>
+      </div> */}
+      <>
+        {female_products.map(
+          (product: any, index: number) => (
+            <ProductCard
+              key={index}
+              product={product}
+            />
+          )
+        )}
+      </>
     </div>
   );
 }
