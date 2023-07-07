@@ -1,0 +1,57 @@
+import React from "react";
+import Header from "../../../components/header";
+import Footer from "../../../components/footer";
+import { client } from "../../../sanity/lib/client";
+
+export async function getProduct(name: string) {
+  try {
+    const productName = name
+      .split("-")
+      .map(
+        (word) =>
+          word.charAt(0).toUpperCase() +
+          word.slice(1)
+      )
+      .join(" ");
+    //
+    const product =
+      await client.fetch(`*[_type == 'product' && name == '${productName}']`);
+    //
+    return product;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export default async function GiveProduct({
+  params,
+  searchParams,
+}: {
+  params: { product: string };
+  searchParams: { id: string };
+}) {
+  const currentProduct = await getProduct(params.product);
+  console.log(currentProduct);
+
+  return (
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="flex flex-wrap p-12 md:p-24">
+        My name is{" "}
+        {params.product
+          .split("-")
+          .map(
+            (word) =>
+              word.charAt(0).toUpperCase() +
+              word.slice(1)
+          )
+          .join(" ")}
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
+}
