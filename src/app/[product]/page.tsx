@@ -14,8 +14,9 @@ export async function getProduct(name: string) {
       )
       .join(" ");
     //
-    const product =
-      await client.fetch(`*[_type == 'product' && name == '${productName}']`);
+    const product = await client.fetch(
+      `*[_type == 'product' && name == '${productName}']`
+    );
     //
     return product;
   } catch (err) {
@@ -23,14 +24,29 @@ export async function getProduct(name: string) {
   }
 }
 
+export function capitaliseString(str: string) {
+  return str
+    .split("-")
+    .map(
+      (word) =>
+        word.charAt(0).toUpperCase() +
+        word.slice(1)
+    )
+    .join(" ");
+}
+
 export default async function GiveProduct({
   params,
   searchParams,
+  badgeVal
 }: {
   params: { product: string };
   searchParams: { id: string };
+  badgeVal: number
 }) {
-  const currentProduct = await getProduct(params.product);
+  const currentProduct = await getProduct(
+    params.product
+  );
   console.log(currentProduct);
 
   return (
@@ -39,15 +55,7 @@ export default async function GiveProduct({
         <Header />
       </header>
       <main className="flex flex-wrap p-12 md:p-24">
-        My name is{" "}
-        {params.product
-          .split("-")
-          .map(
-            (word) =>
-              word.charAt(0).toUpperCase() +
-              word.slice(1)
-          )
-          .join(" ")}
+        My name is {capitaliseString(params.product)}
       </main>
       <footer>
         <Footer />

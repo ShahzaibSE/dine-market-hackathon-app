@@ -42,6 +42,12 @@ const product = {
       title: "Sizes",
       of: [{ type: "string" }],
     },
+    {
+      name: "previews",
+      type: "array",
+      title: "Previews",
+      of: [{type: "image"}]
+    }
   ],
 };
 
