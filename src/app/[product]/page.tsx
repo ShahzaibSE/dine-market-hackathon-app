@@ -56,6 +56,13 @@ export default async function GiveProduct({
       </header>
       <main className="flex flex-wrap p-12 md:p-24">
         My name is {capitaliseString(params.product)}
+        <div className="flex">
+          <div className="flex">
+            <div className="flex"></div>
+            <div className="flex"></div>
+          </div>
+          <div className="flex"></div>
+        </div>
       </main>
       <footer>
         <Footer />
