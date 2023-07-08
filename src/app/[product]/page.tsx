@@ -3,7 +3,16 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 
-export async function getProduct(name: string) {
+// export const client = createClient({
+//   apiVersion: "2023-06-01",
+//   dataset: "production",
+//   projectId:
+//     process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+//   token: process.env.SANITY_ACCESS_TOKEN,
+//   // useCdn: true,
+// });
+
+async function getProduct(name: string) {
   try {
     const productName = name
       .split("-")
@@ -24,7 +33,7 @@ export async function getProduct(name: string) {
   }
 }
 
-export function capitaliseString(str: string) {
+function capitaliseString(str: string) {
   return str
     .split("-")
     .map(
@@ -38,11 +47,9 @@ export function capitaliseString(str: string) {
 export default async function GiveProduct({
   params,
   searchParams,
-  badgeVal
 }: {
   params: { product: string };
   searchParams: { id: string };
-  badgeVal: number
 }) {
   const currentProduct = await getProduct(
     params.product

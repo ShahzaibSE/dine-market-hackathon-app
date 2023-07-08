@@ -4,7 +4,7 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 
-export const getMaleProducts =
+const getMaleProducts =
   async function () {
     try {
       const res = await client.fetch(

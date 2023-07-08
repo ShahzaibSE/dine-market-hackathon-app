@@ -54,7 +54,7 @@ export function createHyphenatedName(input: string): string {
 export default function ProductCard(props: {
   product: Product;
 }) {
-  const { name, gender, price, imageUrl } =
+  const { name, gender, price, imageUrl, category } =
     props.product;
   //
   return (
@@ -65,7 +65,7 @@ export default function ProductCard(props: {
             <CardContent>
               <div className="flex justify-center items-center">
                 <Image
-                  alt="female-brushed-reglan-sweatshirt"
+                  alt={name}
                   src={urlForImage(imageUrl)
                     .width(300)
                     .url()}
@@ -75,13 +75,13 @@ export default function ProductCard(props: {
                 />
               </div>
             </CardContent>
-            <CardFooter>
-              <div className="flex flex-col justify-between items-center gap-2">
-                <h3 className="font-bold text-2xl text-center md:text-justify md:3xl">
-                  Brushed Reglan Sweatshirt
+            <CardFooter className="flex justify-center items-center">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <h3 className="font-bold text-2xl text-center md:text-center">
+                  {name}
                 </h3>
-                <h3 className="font-bold text-2xl md:3xl">
-                  $195
+                <h3 className="font-bold text-2xl">
+                  ${price}
                 </h3>
               </div>
             </CardFooter>

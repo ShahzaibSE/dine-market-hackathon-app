@@ -4,11 +4,11 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 
-export const getAllProducts =
+const getAllProducts =
   async function () {
     try {
       const res = await client.fetch(
-        `*[_type == 'product'] `
+        `*[_type == 'product' && gender == 'male' || gender == 'female'] `
       );
       return res;
     } catch (err) {

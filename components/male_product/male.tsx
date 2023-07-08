@@ -36,7 +36,7 @@ export default function MaleComponent(
           </Card>
         </motion.div>
       </div> */}
-      <>
+    
         {male_products.map(
           (product: any, index: number) => (
             <ProductCard
@@ -45,7 +45,7 @@ export default function MaleComponent(
             />
           )
         )}
-      </>
+      
     </div>
   );
 }
