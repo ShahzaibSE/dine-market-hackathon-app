@@ -5,7 +5,6 @@ export default function MaleComponent(
   props: any
 ) {
   const { male_products } = props;
-  console.log("Male Products");
   //
   return (
     <div className="flex flex-wrap justify-between items-center gap-4">

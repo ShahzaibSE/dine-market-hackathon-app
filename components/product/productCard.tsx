@@ -27,6 +27,7 @@ export interface Product {
   price: string;
   category?: string;
   imageUrl: IImage;
+  previews?: Array<IImage>;
 }
 
 export function urlFor(product: string) {

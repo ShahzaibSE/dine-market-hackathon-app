@@ -8,7 +8,7 @@ const getAllProducts =
   async function () {
     try {
       const res = await client.fetch(
-        `*[_type == 'product' && gender == 'male' || gender == 'female'] `
+        `*[_type == 'product' && gender == 'male' || gender == 'female' || gender == 'kid'] `
       );
       return res;
     } catch (err) {
