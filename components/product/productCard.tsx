@@ -12,28 +12,17 @@ import {
 } from "./../ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Image as IImage } from "sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../sanity/lib/client";
 import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
+import { Product } from "@/type";
 
 export const builder = imageUrlBuilder(client);
-
-export interface Product {
-  name: string;
-  description?: string;
-  gender: string;
-  price: string;
-  category?: string;
-  imageUrl: IImage;
-  previews?: Array<IImage>;
-}
 
 export function urlFor(product: string) {
   return createHyphenatedName(`/${product}`);
 }
-
 
 
 // const encodedProduct = encodeURIComponent(JSON.stringify(product));
