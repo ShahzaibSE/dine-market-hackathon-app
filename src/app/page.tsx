@@ -6,15 +6,7 @@ import Footer from "../../components/footer";
 export default async function Home() {
   return (
     <div>
-      <header>
-        <Header />
-      </header>
-      <main className="flex flex-wrap p-12 md:p-24">
-        <HomeComponent />
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
+      <HomeComponent />
     </div>
   );
 }

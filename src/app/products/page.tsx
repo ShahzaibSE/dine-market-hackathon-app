@@ -20,15 +20,7 @@ export default async function MalePage() {
   const allProducts = await getAllProducts();
   return (
     <div>
-      <header>
-        <Header />
-      </header>
-      <main className="flex flex-wrap p-12 md:p-24">
         <AllProductComponent all_products={allProducts}/>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }
