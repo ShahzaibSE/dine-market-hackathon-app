@@ -4,8 +4,8 @@ import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
-import { Product } from "../../../components/product/productCard";
 import { ProductDetail } from "../../../components/product/productDetails";
+import {Product} from "@/type";
 import type {
   InferGetServerSidePropsType,
   GetServerSideProps,
@@ -72,45 +72,34 @@ export default async function GiveProduct({
   console.log(currentProduct);
   return (
     <div>
-      <header>
-        <Header />
-      </header>
-      <main className="flex flex-wrap p-12 md:p-24">
+      <div className="flex">
+        My name is{" "}
+        {capitaliseString(params.product)}
+      </div>
+      <div className="flex">
         <div className="flex">
-          My name is{" "}
-          {capitaliseString(params.product)}
-        </div>
-        <div className="flex">
-          <div className="flex">
-            <div className="flex flex-col justify-between items-center gap-4">
-              <>
-                {currentProduct.previews?.map(
-                  (
-                    product: any,
-                    index: number
-                  ) => (
-                    <Image
-                      key={index}
-                      src={urlForImage(product)
-                        .width(50)
-                        .url()}
-                      alt={currentProduct.name}
-                      width={50}
-                      height={50}
-                    />
-                  )
-                )}
-              </>
-            </div>
-            <div className="flex"></div>
+          <div className="flex flex-col justify-between items-center gap-4">
+            <>
+              {currentProduct.previews?.map(
+                (product: any, index: number) => (
+                  <Image
+                    key={index}
+                    src={urlForImage(product)
+                      .width(50)
+                      .url()}
+                    alt={currentProduct.name}
+                    width={50}
+                    height={50}
+                  />
+                )
+              )}
+            </>
           </div>
           <div className="flex"></div>
         </div>
-        {/* <ProductDetail product_detail={currentProduct} /> */}
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+        <div className="flex"></div>
+      </div>
+      {/* <ProductDetail product_detail={currentProduct} /> */}
     </div>
   );
 }
