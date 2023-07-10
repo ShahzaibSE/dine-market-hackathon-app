@@ -12,9 +12,9 @@ export const productAPI = createApi({
   }),
   tagTypes: ["product"],
   endpoints: (builder) => ({
-    search: {
-      query: (q) => `product?gender${q}`,
+    search: builder.query<Product[], string>({
+      query: (q) => (`product?gender=${q}`),
       providesTags: (result, error, search) => [{type: "product", search}]
-    },
+    }),
   }),
 });
