@@ -13,9 +13,9 @@ export const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    setProducts(state: any) {
+    setProducts(state: any, action: PayloadAction<Product>) {
       try {
-        return state.products;
+        state.products = action.payload;
       } catch (err) {
         throw err;
       }

@@ -119,10 +119,10 @@ export default function HomeComponent() {
         </div>
       </div>
 
-      <div className="flex flex-col flex-wrap md:flex-row gap-8">
+      <div className="flex flex-col flex-wrap md:flex-row md:flex-nowrap gap-8 max-w-screen-xl">
         <div className="flex flex-col gap-6">
           <motion.div whileHover={{ scale: 1.1 }}>
-            <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl">
+            <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl md:flex-nowrap">
               <div className="flex flex-col p-12">
                 <h3 className="font-bold text-2xl leading-6">
                   <span className="text-2xl font-bold">
@@ -258,8 +258,8 @@ export default function HomeComponent() {
               </div>
             </CardContent>
             <CardFooter>
-              <div className="flex flex-col justify-between items-center gap-2">
-                <h3 className="font-bold text-2xl md:3xl">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <h3 className="font-bold text-2xl text-center md:3xl">
                   Brushed Reglan Sweatshirt
                 </h3>
                 <h3 className="font-bold text-2xl md:3xl">
@@ -284,8 +284,8 @@ export default function HomeComponent() {
               </div>
             </CardContent>
             <CardFooter>
-              <div className="flex flex-col justify-between items-center gap-2">
-                <h3 className="font-bold text-2xl md:3xl">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <h3 className="font-bold text-2xl text-center md:3xl">
                   Cameryn Sash Tie Dress
                 </h3>
                 <h3 className="font-bold text-2xl md:3xl">

@@ -20,11 +20,8 @@ export default function Header() {
     useState(false);
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="/"
-          className="flex items-center"
-        >
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2 md:p-6">
+        <a href="/" className="flex items-center">
           <Image
             src="/assets/dine-market-logo.png"
             className="h-8 mr-3 w-auto"
@@ -192,7 +189,12 @@ export default function Header() {
           } font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700`}
         >
           <li>
-            <Link href="#" onClick={()=>{console.log("Going to cart")}}>
+            <Link
+              href="#"
+              onClick={() => {
+                console.log("Going to cart");
+              }}
+            >
               <div className={`md:px-4`}>
                 <div className="relative py-2 flex justify-end">
                   <div className="t-0 relative left-3 bottom-1">

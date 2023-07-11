@@ -18,15 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
-          <Header />
-        </header>
-        <main className="flex flex-wrap p-12 md:p-24">
-          {children}
-        </main>
-        <footer>
-          <Footer />
-        </footer>
+        <div className="">
+          <header>
+            <Header />
+          </header>
+          <main className="flex flex-wrap p-12 md:p-24">
+            {children}
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </body>
     </html>
   );
