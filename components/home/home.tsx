@@ -25,8 +25,8 @@ import "swiper/css";
 export default function HomeComponent() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col justify-start item-start md:flex-row md:justify-start md:items-start md:space-x-20">
-        <div className="flex flex-col justify-around items-start w-full md:w-2/4">
+      <div className="flex flex-col justify-start item-start xl:flex-row xl:justify-start xl:items-start xl:space-x-20">
+        <div className="flex flex-col justify-around items-start w-full xl:w-2/4">
           <div className="flex flex-col justify-start items-start">
             <div className="h-10 w-32 bg-blue-100 rounded-sm flex justify-center items-center">
               <p className="text-blue-600 font-bold">
@@ -34,7 +34,7 @@ export default function HomeComponent() {
               </p>
             </div>
             <div className="flex justify-center items-center py-4">
-              <h1 className="text-4xl tracking-wider font-bold md:text-6xl md:tracking-wider md:font-bold">
+              <h1 className="text-4xl tracking-wider font-bold xl:text-6xl xl:tracking-wider xl:font-bold">
                 An Industrial Take on Streetwear
               </h1>
             </div>
@@ -94,9 +94,9 @@ export default function HomeComponent() {
           </div>
         </div>
         <div>
-          <div className="hidden md:flex md:relative md:bottom-14 md:justify-start md:items-start md:w-[600px] md:h-[600px] md:rounded-full md:bg-orange-200">
+          <div className="hidden xl:flex xl:relative xl:bottom-14 xl:justify-start xl:items-start xl:w-[600px] xl:h-[600px] xl:rounded-full xl:bg-orange-200">
             <Image
-              className="md:relative left-14 pt-5"
+              className="xl:relative left-14 pt-5"
               src="/assets/homepage-picture.webp"
               alt="dine market front image"
               width="700"
@@ -106,23 +106,23 @@ export default function HomeComponent() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-24 mb-10 md:mt-28">
+      <div className="flex flex-col mt-24 mb-10 xl:mt-28">
         <div className="flex justify-center items-start">
           <p className="font-bold text-blue-600 text-base">
             PROMOTIONS
           </p>
         </div>
-        <div className="flex justify-center items-start text-center md:m-4">
-          <h1 className="text-3xl font-bold tracking-wider md:text-4xl">
+        <div className="flex justify-center items-start text-center xl:m-4">
+          <h1 className="text-3xl font-bold tracking-wider xl:text-4xl">
             Our Promotions Events
           </h1>
         </div>
       </div>
 
-      <div className="flex flex-col flex-wrap md:flex-row md:flex-nowrap gap-8 max-w-screen-xl">
+      <div className="flex flex-col flex-wrap xl:flex-row xl:flex-nowrap gap-8 max-w-screen-xl">
         <div className="flex flex-col gap-6">
           <motion.div whileHover={{ scale: 1.1 }}>
-            <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl md:flex-nowrap">
+            <div className="bg-gray-400 flex flex-row flex-wrap justify-between items-center max-w-2xl xl:flex-nowrap">
               <div className="flex flex-col p-12">
                 <h3 className="font-bold text-2xl leading-6">
                   <span className="text-2xl font-bold">
@@ -147,12 +147,12 @@ export default function HomeComponent() {
             </div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.1 }}>
-            <div className="bg-black flex flex-row flex-wrap justify-center items-center py-12 md:p-0">
-              <div className="flex flex-col md:p-12">
-                <h3 className="font-bold text-2xl md:text-4xl text-white text-center md:leading-9">
+            <div className="bg-black flex flex-row flex-wrap justify-center items-center py-12 xl:p-0">
+              <div className="flex flex-col xl:p-12">
+                <h3 className="font-bold text-2xl xl:text-4xl text-white text-center xl:leading-9">
                   GET UP TO <span>60%</span>
                 </h3>
-                <p className="md:tracking-wider text-center md:text-sm mt-3 text-white">
+                <p className="xl:tracking-wider text-center xl:text-sm mt-3 text-white">
                   USE PROMO CODE
                 </p>
                 <Button
@@ -175,7 +175,7 @@ export default function HomeComponent() {
             </div>
           </motion.div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col xl:flex-row gap-4">
           <motion.div whileHover={{ scale: 1.1 }}>
             <div className="flex flex-col bg-orange-200 p-8 gap-10">
               <div className="flex flex-col">
@@ -227,14 +227,14 @@ export default function HomeComponent() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-24 md:mt-28">
+      <div className="flex flex-col mt-24 xl:mt-28">
         <div className="flex justify-center items-start">
           <p className="font-bold text-blue-600 text-base">
             PRODUCTS
           </p>
         </div>
-        <div className="flex justify-center items-start text-center md:m-4">
-          <h1 className="text-3xl font-bold tracking-wider md:text-4xl">
+        <div className="flex justify-center items-start text-center xl:m-4">
+          <h1 className="text-3xl font-bold tracking-wider xl:text-4xl">
             Check What We Have
           </h1>
         </div>
@@ -242,7 +242,7 @@ export default function HomeComponent() {
 
       <div
         id="featured-products"
-        className="flex flex-col md:flex-row justify-between items-center my-12 gap-4"
+        className="flex flex-col xl:flex-row justify-between items-center my-12 gap-4"
       >
         <motion.div whileHover={{ scale: 1.2 }}>
           <Card>
@@ -259,10 +259,10 @@ export default function HomeComponent() {
             </CardContent>
             <CardFooter>
               <div className="flex flex-col justify-center items-center gap-2">
-                <h3 className="font-bold text-2xl text-center md:3xl">
+                <h3 className="font-bold text-2xl text-center xl:3xl">
                   Brushed Reglan Sweatshirt
                 </h3>
-                <h3 className="font-bold text-2xl md:3xl">
+                <h3 className="font-bold text-2xl xl:3xl">
                   $195
                 </h3>
               </div>
@@ -285,10 +285,10 @@ export default function HomeComponent() {
             </CardContent>
             <CardFooter>
               <div className="flex flex-col justify-center items-center gap-2">
-                <h3 className="font-bold text-2xl text-center md:3xl">
+                <h3 className="font-bold text-2xl text-center xl:3xl">
                   Cameryn Sash Tie Dress
                 </h3>
-                <h3 className="font-bold text-2xl md:3xl">
+                <h3 className="font-bold text-2xl xl:3xl">
                   $545
                 </h3>
               </div>
@@ -311,10 +311,10 @@ export default function HomeComponent() {
             </CardContent>
             <CardFooter>
               <div className="flex flex-col justify-between items-center gap-2">
-                <h3 className="font-bold text-2xl text-center md:3xl">
+                <h3 className="font-bold text-2xl text-center xl:3xl">
                   Brushed Flex Sweatshirt
                 </h3>
-                <h3 className="font-bold text-2xl md:3xl">
+                <h3 className="font-bold text-2xl xl:3xl">
                   $175
                 </h3>
               </div>
@@ -330,15 +330,15 @@ export default function HomeComponent() {
         </h1>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-end md:justify-center items-start gap-10 mt-10">
-        <div className="grid grid-rows-2 grid-flow-col gap-10 relative md:top-4">
+      <div className="flex flex-col xl:flex-row justify-end xl:justify-center items-start gap-10 mt-10">
+        <div className="grid grid-rows-2 grid-flow-col gap-10 relative xl:top-4">
           <div className="z-10 absolute">
-            <h1 className="font-bold text-7xl md:text-8xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
+            <h1 className="font-bold text-7xl xl:text-8xl opacity-25 text-gray-300 tracking-normal xl:tracking-widest leading-loose xl:leading-none">
               Different <br /> From <br /> Others
             </h1>
           </div>
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-start md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start xl:text-lg leading-6">
               Using Good Quality Materials
             </h3>
             <p className="text-lg tracking-normal text-start">
@@ -348,7 +348,7 @@ export default function HomeComponent() {
           </div>
 
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-start md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start xl:text-lg leading-6">
               Using Good Quality Materials
             </h3>
             <p className="text-lg tracking-normal text-start">
@@ -358,7 +358,7 @@ export default function HomeComponent() {
           </div>
 
           <div className="flex flex-col justify-between items-start gap-2 my-3">
-            <h3 className="font-bold text-md text-start md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start xl:text-lg leading-6">
               Using Good Quality Materials
             </h3>
             <p className="text-lg tracking-normal text-start">
@@ -368,7 +368,7 @@ export default function HomeComponent() {
           </div>
 
           <div className="flex flex-col justify-between items-start my-3">
-            <h3 className="font-bold text-md text-start md:text-lg leading-6">
+            <h3 className="font-bold text-md text-start xl:text-lg leading-6">
               Using Good Quality Materials
             </h3>
             <p className="text-lg tracking-normal text-start">
@@ -386,7 +386,7 @@ export default function HomeComponent() {
             </h1>
           </div> */}
 
-          <div className="flex flex-col md:flex-row justify-end items-center gap-8 mt-6">
+          <div className="flex flex-col xl:flex-row justify-end items-center gap-8 mt-6">
             <div className="flex">
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -400,7 +400,7 @@ export default function HomeComponent() {
                 />
               </motion.div>
             </div>
-            <div className="flex flex-col justify-start items-start md:w-2/5">
+            <div className="flex flex-col justify-start items-start xl:w-2/5">
               <div className="flex">
                 <p className="tracking-wide text-md leading-6 text-justify">
                   This piece is ethically crafted
@@ -424,17 +424,17 @@ export default function HomeComponent() {
         </div>
       </div>
       
-      <div className="flex justify-center items-center my-20 md:my-40">
+      <div className="flex justify-center items-center my-20 xl:my-40">
         <div className="-z-10 absolute">
-          <h1 className="font-bold text-7xl md:text-9xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
+          <h1 className="font-bold text-7xl xl:text-9xl opacity-25 text-gray-300 tracking-normal xl:tracking-widest leading-loose xl:leading-none">
             Newsletter
           </h1>
         </div>
         <div className="flex flex-col justify-center items-center gap-6">
-          <h1 className="font-bold text-4xl md:text-5xl text-center tracking-wide">Subscribe Our Newsletter</h1>
+          <h1 className="font-bold text-4xl xl:text-5xl text-center tracking-wide">Subscribe Our Newsletter</h1>
           <p className="text-md">Get the latest information and promo offers directly</p>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-3">
-            <div><Input type="email" placeholder="Input Email Address" className="w-full px-16 md:px-12" /></div>
+          <div className="flex flex-col xl:flex-row justify-center items-center gap-3">
+            <div><Input type="email" placeholder="Input Email Address" className="w-full px-16 xl:px-12" /></div>
             <div className="flex justify-start items-start">
                 <Button>
                   <span className="font-bold">

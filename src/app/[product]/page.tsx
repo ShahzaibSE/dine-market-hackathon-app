@@ -78,7 +78,7 @@ export default async function GiveProduct({
   // console.log(currentProduct);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
-      <div className="md:container flex flex-wrap md:flex-row gap-10">
+      <div className="xl:container flex flex-wrap xl:flex-row gap-10">
         {/* <div className="flex">
         My name is{" "}
         {capitaliseString(params.product)}
@@ -224,15 +224,15 @@ export default async function GiveProduct({
         {/* <ProductDetail product_detail={currentProduct} /> */}
       </div>
 
-      <div className="md:container flex flex-row justify-start items-start gap-6">
+      <div className="xl:container flex flex-row justify-start items-start gap-6">
         <div className="flex flex-col justify-start items-start gap-6">
           <div className="z-20 absolute">
-            <h1 className="font-bold text-6xl md:text-9xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
+            <h1 className="font-bold text-6xl xl:text-9xl opacity-25 text-gray-300 tracking-normal xl:tracking-wider leading-loose xl:leading-none">
               Overview
             </h1>
           </div>
-          <div className="flex justify-start items-start relative top-6 md:top-16">
-            <h2 className="xl:text-3xl font-bold tracking-wide leading-8">Product Information</h2>
+          <div className="flex w-2/4 xl:w-full justify-start items-start relative top-10 xl:top-16">
+            <h2 className="text-2xl xl:text-3xl font-bold tracking-wide leading-8">Product Information</h2>
           </div>
         </div>
       </div>
