@@ -10,7 +10,12 @@ import type {
   InferGetServerSidePropsType,
   GetServerSideProps,
 } from "next";
-import {Minus, Plus} from "lucide-react";
+import {
+  Minus,
+  Plus,
+  ShoppingCart,
+} from "lucide-react";
+import { Button } from "../../../components/ui/button";
 
 async function getProduct(name: string) {
   try {
@@ -72,14 +77,15 @@ export default async function GiveProduct({
   // );
   // console.log(currentProduct);
   return (
-    <div className="flex flex-wrap md:flex-row gap-6">
-      {/* <div className="flex">
+    <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
+      <div className="md:container flex flex-wrap md:flex-row gap-10">
+        {/* <div className="flex">
         My name is{" "}
         {capitaliseString(params.product)}
       </div> */}
-      <div className="flex flex-row gap-4">
-        <div className="flex">
-          {/* <div className="flex flex-col justify-between items-center gap-4">
+        <div className="flex flex-row gap-4">
+          <div className="flex">
+            {/* <div className="flex flex-col justify-between items-center gap-4">
             <>
               {currentProduct.previews?.map(
                 (product: any, index: number) => (
@@ -97,86 +103,139 @@ export default async function GiveProduct({
               )}
             </>
           </div> */}
-          <div className="flex flex-col justify-start items-start gap-4">
-            <div className="flex">
-              <Image
-                className="aspect-auto"
-                alt="preview image 1"
-                src="/assets/male-clothes/male-flex-button-bomber.png"
-                width="50"
-                height="50"
-              />
+            <div className="flex flex-col justify-start items-start gap-4">
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="preview image 1"
+                  src="/assets/male-clothes/male-flex-button-bomber.png"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="preview image 1"
+                  src="/assets/male-clothes/male-flex-button-bomber.png"
+                  width="50"
+                  height="50"
+                />
+              </div>
             </div>
-            <div className="flex">
+            <div className="flex"></div>
+          </div>
+          <div className="flex">
+            <div className="flex justify-center items-center w-full h-full relative">
               <Image
-                className="aspect-auto"
+                className="object-cover"
                 alt="preview image 1"
                 src="/assets/male-clothes/male-flex-button-bomber.png"
-                width="50"
-                height="50"
+                width={600}
+                height={600}
               />
             </div>
           </div>
-          <div className="flex"></div>
         </div>
-        <div className="flex">
-          <div className="flex justify-center items-center w-full h-full relative">
-            <Image
-              className="object-cover"
-              alt="preview image 1"
-              src="/assets/male-clothes/male-flex-button-bomber.png"
-              width={600}
-              height={600}
-            />
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col">
+            <h2 className="tracking-widest text-2xl">
+              Flex Push Button Bomber
+            </h2>
+            <h3 className="text-gray-400 font-bold text-xl tracking-wide">
+              Jacket
+            </h3>
+          </div>
+
+          <div className="flex flex-col">
+            <div>
+              <p className="text-md font-bold tracking-normal">
+                SELECT SIZE
+              </p>
+            </div>
+            <div className="flex flex-row justify-between items-center gap-4">
+              <div className="w-10 h-10 flex justify-center items-center hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
+                <h3 className="font-bold text-md">
+                  XS
+                </h3>
+              </div>
+              <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
+                <h3 className="font-bold text-md">
+                  S
+                </h3>
+              </div>
+              <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
+                <h3 className="font-bold text-md">
+                  M
+                </h3>
+              </div>
+              <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
+                <h3 className="font-bold text-md">
+                  L
+                </h3>
+              </div>
+              <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
+                <h3 className="font-bold text-md">
+                  XL
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-start items-center gap-6">
+            <div className="flex justify-center items-center">
+              <p className="font-bold text-md">
+                Quantity:
+              </p>
+            </div>
+            <div className="flex justify-start items-center gap-4">
+              <div className="flex justify-center items-center w-10 h-10 rounded-full bg-gray-400">
+                <span>
+                  <Minus />
+                </span>
+              </div>
+              <div>
+                <p>1</p>
+              </div>
+              <div className="flex justify-center items-center w-10 h-10 rounded-full border-black border-2">
+                <span>
+                  <Plus />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="flex">
+              <Button>
+                <ShoppingCart className="mr-2 h-4 w-4" />{" "}
+                <span className="font-bold">
+                  Add to Cart
+                </span>
+              </Button>
+            </div>
+            <div className="flex justify-center items-center">
+              <h3 className="font-bold text-xl">
+                $225.00
+              </h3>
+            </div>
+          </div>
+        </div>
+        {/* <ProductDetail product_detail={currentProduct} /> */}
+      </div>
+
+      <div className="md:container flex flex-row justify-start items-start gap-6">
+        <div className="flex flex-col justify-start items-start gap-6">
+          <div className="z-20 absolute">
+            <h1 className="font-bold text-6xl md:text-9xl opacity-25 text-gray-300 tracking-normal md:tracking-widest leading-loose md:leading-none">
+              Overview
+            </h1>
+          </div>
+          <div className="flex justify-start items-start relative top-6 md:top-16">
+            <h2 className="xl:text-3xl font-bold tracking-wide leading-8">Product Information</h2>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col">
-          <h2 className="tracking-widest text-2xl">
-            Flex Push Button Bomber
-          </h2>
-          <h3 className="text-gray-400 font-bold text-xl tracking-wide">
-            Jacket
-          </h3>
-        </div>
-
-        <div className="flex flex-col">
-          <div>
-            <p className="text-md font-bold tracking-normal">
-              SELECT SIZE
-            </p>
-          </div>
-          <div className="flex flex-row justify-between items-center gap-4">
-            <div className="w-10 h-10 flex justify-center items-center hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
-              <h3 className="font-bold text-md">XS</h3>
-            </div>
-            <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
-              <h3 className="font-bold text-md">S</h3>
-            </div>
-            <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
-              <h3 className="font-bold text-md">M</h3>
-            </div>
-            <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
-              <h3 className="font-bold text-md">L</h3>
-            </div>
-            <div className="w-10 h-10 flex justify-center items-center  hover:rounded-full hover:bg-slate-50 hover:border-gray-300 hover:border-4">
-              <h3 className="font-bold text-md">XL</h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-row justify-between items-center">
-          <div>
-            <p className="font-bold text-md">Quantity:</p>
-          </div>
-          <div>
-
-          </div>
-        </div>
-        <div className="flex"></div>
-      </div>
-      {/* <ProductDetail product_detail={currentProduct} /> */}
     </div>
   );
 }
