@@ -16,6 +16,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import { Button } from "../../../components/ui/button";
+import { Separator } from "../../components/ui/separator";
 
 async function getProduct(name: string) {
   try {
@@ -232,9 +233,42 @@ export default async function GiveProduct({
             </h1>
           </div>
           <div className="flex w-2/4 xl:w-full justify-start items-start relative top-10 xl:top-16">
-            <h2 className="text-2xl xl:text-3xl font-bold tracking-wide leading-8">Product Information</h2>
+            <h2 className="text-2xl xl:text-3xl font-bold tracking-wide leading-8">
+              Product Information
+            </h2>
           </div>
         </div>
+      </div>
+
+      <div className="hidden xl:block"></div>
+
+      <div className="flex flex-col justify-between items-center gap-6 xl:container">
+        <div className="flex flex-col xl:flex-row justify-between items-start gap-2">
+          <div className="flex flex-col justify-start items-start">
+            <h3 className="font-bold text-lg xl:text-xl text-gray-400 tracking-wider">
+              PRODUCT DETAILS
+            </h3>
+          </div>
+          <div className="flex justify-start items-start xl:w-3/4">
+            <p className="text-lg leading-8 tracking-wider text-gray-600 text-justify">
+              Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+              et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+              Duis aute irure dolor in
+              reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+          </div>
+        </div>
+        <div className="flex xl:container"></div>
       </div>
     </div>
   );
