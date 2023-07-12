@@ -243,13 +243,13 @@ export default async function GiveProduct({
       <div className="hidden xl:block"></div>
 
       <div className="flex flex-col justify-between items-center gap-6 xl:container">
-        <div className="flex flex-col xl:flex-row justify-between items-start gap-2">
+        <div className="flex flex-col xl:flex-row xl:container justify-between items-start gap-2">
           <div className="flex flex-col justify-start items-start">
             <h3 className="font-bold text-lg xl:text-xl text-gray-400 tracking-wider">
               PRODUCT DETAILS
             </h3>
           </div>
-          <div className="flex justify-start items-start xl:w-3/4">
+          <div className="flex justify-start items-start xl:w-4/6">
             <p className="text-lg leading-8 tracking-wider text-gray-600 text-justify">
               Lorem ipsum dolor sit amet,
               consectetur adipiscing elit, sed do
@@ -268,7 +268,37 @@ export default async function GiveProduct({
             </p>
           </div>
         </div>
-        <div className="flex xl:container"></div>
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:container gap-4 xl:gap-0 mt-6 xl:mt-0">
+          <div className="flex flex-row justify-start items-start">
+            <h3 className="font-bold text-lg xl:text-xl text-gray-400 tracking-wider">
+              PRODUCT CARE
+            </h3>
+          </div>
+          <div className="flex justify-start items-start xl:w-4/6">
+            <ul className="list-disc">
+              <li>
+                <p className="font-bold text-lg leading-8 tracking-wide">
+                  Hand wash using cold water.
+                </p>
+              </li>
+              <li>
+                <p className="font-bold text-lg leading-8 tracking-wide">
+                  Do not using bleach.
+                </p>
+              </li>
+              <li>
+                <p className="font-bold text-lg leading-8 tracking-wide">
+                  Hang it to dry.
+                </p>
+              </li>
+              <li>
+                <p className="font-bold text-lg leading-8 tracking-wide">
+                  Iron on low temperature.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
