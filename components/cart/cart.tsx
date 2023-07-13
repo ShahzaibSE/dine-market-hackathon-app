@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 
 export default function CartComponent() {
   return (
-    <div className="flex flex-col justify-start items-start xl:flex-row xl:justify-between xl:items-end gap-6 xl:container">
+    <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-0 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">
         <div className="flex my-4">
           <h1 className="font-bold text-2xl xl:text-3xl leading-6 tracking-wide">
@@ -64,7 +64,7 @@ export default function CartComponent() {
                 </p>
               </div>
 
-              <div className="flex justify-between items-center gap-36 xl:gap-x-80">
+              <div className="flex justify-center xljustify-between items-center gap-32 xl:gap-x-80">
                 <div>
                   <p className="font-bold text-xl leading-6 tracking-wide">
                     $195
@@ -95,7 +95,7 @@ export default function CartComponent() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-start items-start gap-6 bg-blue-100 p-10 rounded-md w-full xl:w-2/5">
+      <div className="flex flex-col justify-start items-start gap-8 bg-blue-100 p-6 xl:p-10 rounded-md w-full xl:w-2/5">
         <div className="flex justify-start items-start">
           <h3 className="font-bold tracking-wide leading-6 text-xl">
             Order Summary
