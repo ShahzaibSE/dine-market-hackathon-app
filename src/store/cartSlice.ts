@@ -66,3 +66,11 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const cartReducer = cartSlice.reducer;
+export const {
+  addToCart,
+  removeItem,
+  increateQuantity,
+  decreaseQuantity,
+} = cartSlice.actions;
