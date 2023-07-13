@@ -17,7 +17,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./../ui/card";
+} from "../ui/card";
 //
 import "swiper/css";
 // import "swiper/css/navigation";

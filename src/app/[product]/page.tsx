@@ -6,10 +6,7 @@ import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
 import { ProductDetail } from "../../../components/product/productDetails";
 import { Product } from "@/type";
-import type {
-  InferGetServerSidePropsType,
-  GetServerSideProps,
-} from "next";
+import { capitaliseString } from "@/utils";
 import {
   Minus,
   Plus,
@@ -42,17 +39,6 @@ async function getProduct(name: string) {
   }
 }
 
-function capitaliseString(str: string) {
-  return str
-    .split("-")
-    .map(
-      (word) =>
-        word.charAt(0).toUpperCase() +
-        word.slice(1)
-    )
-    .join(" ");
-}
-
 // export const getServerSideProps: GetServerSideProps<{
 //   res: Product
 // }> = async () => {
@@ -70,19 +56,15 @@ export default async function GiveProduct({
   params: { product: string };
   searchParams: { id: string };
 }) {
-  const currentProduct = await getProduct(
-    params.product
-  );
-  console.log(
-    "Product details - Product Detail Page"
-  );
-  console.log(currentProduct);
+  const {data} = await (await fetch(`http:localhost:3000/api/productDetails?q=${params.product}`)).json();
+  console.log("Product details");
+  console.log(data);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">
         {/* <div className="flex">
         My name is{" "}
-        {capitaliseString(params.product)}
+        {data[0].name}
       </div> */}
         <div className="flex flex-row gap-4">
           <div className="flex">

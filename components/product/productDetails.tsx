@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./../ui/card";
+} from "../ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Image as IImage } from "sanity";

@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./../ui/card";
+} from "../ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
@@ -44,12 +44,12 @@ export function createHyphenatedName(input: string): string {
 export default function ProductCard(props: {
   product: Product;
 }) {
-  const { name, gender, price, imageUrl, category } =
+  const {_id, name, gender, price, imageUrl, category } =
     props.product;
   //
   return (
     <div>
-      <Link href={urlFor(name)}>
+      <Link href={`/${_id}`}>
         <motion.div whileHover={{ scale: 1.1 }}>
           <Card>
             <CardContent>

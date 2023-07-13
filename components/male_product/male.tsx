@@ -1,5 +1,5 @@
 "use client";
-import ProductCard from "./../product/productCard";
+import ProductCard from "../product/productCard";
 
 export default function MaleComponent(
   props: any

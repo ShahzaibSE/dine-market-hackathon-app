@@ -2,7 +2,7 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Provider } from "react-redux";
+import ReduxProvider from "@/store/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +24,9 @@ export default function RootLayout({
             <Header />
           </header>
           <main className="flex flex-wrap p-12 md:p-24">
-            {children}
+            <ReduxProvider>
+              {children}
+            </ReduxProvider>
           </main>
           <footer>
             <Footer />
