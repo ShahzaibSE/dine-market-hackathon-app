@@ -1,6 +1,7 @@
 import { Image as IImage } from "sanity";
 
 export interface Product {
+  _id?: string;
   name: string;
   description?: string;
   gender: string;

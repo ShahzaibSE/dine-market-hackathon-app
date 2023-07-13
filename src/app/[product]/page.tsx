@@ -73,10 +73,10 @@ export default async function GiveProduct({
   const currentProduct = await getProduct(
     params.product
   );
-  // console.log(
-  //   "Product details - Product Detail Page"
-  // );
-  // console.log(currentProduct);
+  console.log(
+    "Product details - Product Detail Page"
+  );
+  console.log(currentProduct);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">
