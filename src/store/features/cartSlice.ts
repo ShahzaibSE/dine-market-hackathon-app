@@ -1,13 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createSelector,
+} from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { Product } from "@/type";
+import { Product, CartItem } from "@/type";
+import { RootState } from "../store";
 
 export interface CartState {
-  cart_items: Product[];
+  cartItems: CartItem[];
 }
 
 export const initialState: CartState = {
-  cart_items: [],
+  cartItems: [],
 };
 
 export const cartSlice = createSlice({
@@ -19,14 +23,14 @@ export const cartSlice = createSlice({
       action: PayloadAction<Product>
     ) => {
       const itemInCart: Product | any =
-        state.cart_items.filter(
+        state.cartItems.filter(
           (item: Product) =>
             item._id === action.payload._id
         );
       if (itemInCart) {
         itemInCart.quantity++;
       } else {
-        state.cart_items.push(itemInCart);
+        state.cartItems.push(itemInCart);
       }
     },
     removeItem: (
@@ -34,17 +38,17 @@ export const cartSlice = createSlice({
       action: PayloadAction<Product>
     ) => {
       const itemAfterDelete =
-        state.cart_items.filter(
+        state.cartItems.filter(
           (item: Product) =>
             item._id !== action.payload._id
         );
-      state.cart_items = itemAfterDelete;
+      state.cartItems = itemAfterDelete;
     },
     increateQuantity: (
       state: any,
       action: PayloadAction<Product>
     ) => {
-      const item = state.cart_items.find(
+      const item = state.cartItems.find(
         (item: Product) =>
           item._id == action.payload._id
       );
@@ -54,7 +58,7 @@ export const cartSlice = createSlice({
       state: any,
       action: PayloadAction<Product>
     ) => {
-      const item = state.cart_items.find(
+      const item = state.cartItems.find(
         (item: Product) =>
           item._id == action.payload._id
       );
@@ -66,6 +70,17 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+const cartItems = (state: RootState) =>
+  state.cart.cartItems;
+// Creating Selectors.
+export const totalCartItemsSelector =
+  createSelector([cartItems], (cartItems) => {
+    cartItems.reduce(
+      (total: number, curr: CartItem) =>
+        (total += curr.quantity),0);
+  });
+
 
 export const cartReducer = cartSlice.reducer;
 export const {

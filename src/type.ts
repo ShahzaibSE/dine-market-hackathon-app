@@ -11,3 +11,8 @@ export interface Product {
   previews?: Array<IImage>;
   quantity?: number;
 }
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}

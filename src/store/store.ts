@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchReducer from "./productSlice";
-import {productAPI} from "./productAPI";
-import { cartReducer } from "./cartSlice";
+import searchReducer from "./features/productSlice";
+import {productAPI} from "./features/productAPI";
+import { cartReducer } from "./features/cartSlice";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 
 export const store = configureStore({
@@ -17,4 +18,6 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
