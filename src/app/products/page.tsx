@@ -17,10 +17,13 @@ const getAllProducts =
   };
 
 export default async function MalePage() {
-  const allProducts = await getAllProducts();
+  const {data} =
+  await (await fetch(`http://localhost:3000/api/products`)).json();
+  console.log("All Products");
+  console.log(data);
   return (
     <div>
-        <AllProductComponent all_products={allProducts}/>
+        <AllProductComponent all_products={data}/>
     </div>
   );
 }

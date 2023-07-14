@@ -16,10 +16,11 @@ const getFemaleProducts = async function () {
 };
 
 export default async function KidPage() {
-  const kidProducts = await getFemaleProducts();
+  const {data} =
+  await (await fetch(`http://localhost:3000/api/product?gender=kid`)).json();
   return (
     <div>
-      <KidComponent kid_products={kidProducts} />
+      <KidComponent kid_products={data} />
     </div>
   );
 }

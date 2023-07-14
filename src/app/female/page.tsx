@@ -16,12 +16,12 @@ const getFemaleProducts = async function () {
 };
 
 export default async function FemalePage() {
-  const femaleProducts =
-    await getFemaleProducts();
+  const {data} =
+    await (await fetch(`http://localhost:3000/api/product?gender=female`)).json();
   return (
     <div>
       <FemaleComponent
-        female_products={femaleProducts}
+        female_products={data}
       />
     </div>
   );
