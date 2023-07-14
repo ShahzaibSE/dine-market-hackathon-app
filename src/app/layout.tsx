@@ -19,19 +19,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="">
-          <header>
-            <Header />
-          </header>
-          <main className="flex flex-wrap p-12 md:p-24">
-            <ReduxProvider>
+        <ReduxProvider>
+          <div className="">
+            <header>
+              <Header />
+            </header>
+            <main className="flex flex-wrap p-12 md:p-24">
               {children}
-            </ReduxProvider>
-          </main>
-          <footer>
-            <Footer />
-          </footer>
-        </div>
+            </main>
+            <footer>
+              <Footer />
+            </footer>
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   );

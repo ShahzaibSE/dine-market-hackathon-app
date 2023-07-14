@@ -74,13 +74,33 @@ export const cartSlice = createSlice({
 const cartItems = (state: RootState) =>
   state.cart.cartItems;
 // Creating Selectors.
-export const totalCartItemsSelector =
-  createSelector([cartItems], (cartItems) => {
+export const totalCartItemsSelector = createSelector(
+  [cartItems],
+  (cartItems) =>
     cartItems.reduce(
-      (total: number, curr: CartItem) =>
-        (total += curr.quantity),0);
-  });
+      (total: number, current: CartItem) =>
+        (total += current.quantity),
+      0
+    )
+);
 
+export const totalPriceSelector = createSelector(
+  [cartItems],
+  (cartItems) =>
+    cartItems.reduce(
+      (total: number, current: CartItem) =>
+        (total +=
+          current.quantity *
+          Number(current.product.price)),
+      0
+    )
+);
+
+export const productQtyInCartSelector = createSelector(
+  [cartItems, (cartItems, productId: string) => productId],
+  (cartItems, productId) =>
+    cartItems.find((el) => el.product._id === productId)?.quantity
+);
 
 export const cartReducer = cartSlice.reducer;
 export const {
