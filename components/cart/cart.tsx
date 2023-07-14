@@ -9,8 +9,12 @@ import {
   DeleteIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import { useAppSelector } from "@/store/store";
+import CartItemCard from "./cartItemCard";
+import { totalPriceSelector } from "@/store/features/cartSlice";
 
 export default function CartComponent() {
+  const cartItems = useAppSelector((state)=>state.cart.cartItems);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-0 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">

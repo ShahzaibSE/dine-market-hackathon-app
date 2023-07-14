@@ -103,11 +103,11 @@ export default function Header() {
             <Link href="/cart">
               <div className="absolute pb-2">
                 <div className="t-0 absolute left-3">
-                  {!!totalItems && (
+                  {
                     <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
                       {totalItems}
                     </p>
-                  )}
+                  }
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -215,11 +215,11 @@ export default function Header() {
               <div className={`md:px-4`}>
                 <div className="relative py-2 flex justify-end">
                   <div className="t-0 relative left-3 bottom-1">
-                    {!!totalItems && (
+                    {
                       <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
                         {totalItems}
                       </p>
-                    )}
+                    }
                   </div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
