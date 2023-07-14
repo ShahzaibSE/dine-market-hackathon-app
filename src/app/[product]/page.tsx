@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
+import { productQtyInCartSelector } from "@/store/features/cartSlice";
 
 async function getProduct(name: string) {
   try {
@@ -57,8 +58,7 @@ export default async function GiveProduct({
   searchParams: { id: string };
 }) {
   const {data} = await (await fetch(`http:localhost:3000/api/productDetails?q=${params.product}`)).json();
-  console.log("Product details");
-  console.log(data);
+  const product_details: Product = data[0];
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">
@@ -123,7 +123,7 @@ export default async function GiveProduct({
         <div className="flex flex-col gap-6">
           <div className="flex flex-col">
             <h2 className="tracking-widest text-2xl">
-              Flex Push Button Bomber
+              {product_details?.name}
             </h2>
             <h3 className="text-gray-400 font-bold text-xl tracking-wide">
               Jacket

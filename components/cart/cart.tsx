@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Product } from "@/type";
@@ -12,9 +13,18 @@ import { Button } from "../ui/button";
 import { useAppSelector } from "@/store/store";
 import CartItemCard from "./cartItemCard";
 import { totalPriceSelector } from "@/store/features/cartSlice";
+import { totalCartItemsSelector } from "@/store/features/cartSlice";
 
 export default function CartComponent() {
-  const cartItems = useAppSelector((state)=>state.cart.cartItems);
+  const cartItems = useAppSelector(
+    (state) => state.cart.cartItems
+  );
+  const totalPrice = useAppSelector(
+    totalPriceSelector
+  );
+  const totalItems = useAppSelector(
+    totalCartItemsSelector
+  );
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-0 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">
@@ -25,7 +35,7 @@ export default function CartComponent() {
         </div>
         <div className="flex flex-wrap justify-between items-center gap-3">
           {/* Items cart list */}
-          <div className="flex flex-wrap xl:flex-nowrap xl:flex-row justify-between items-center gap-6">
+          {/* <div className="flex flex-wrap xl:flex-nowrap xl:flex-row justify-between items-center gap-6">
             <div className="max-w-screen-xl">
               <Image
                 alt="Female"
@@ -93,51 +103,59 @@ export default function CartComponent() {
                 </div>
               </div>
             </div>
-          </div>
-          {/* Reciept section */}
-          {/* <div className="flex"></div> */}
+          </div> */}
+          {cartItems.map(
+            (cartItem, index: number) => (
+              <CartItemCard
+                key={index}
+                cartItem={cartItem}
+              />
+            )
+          )}
         </div>
       </div>
 
-      <div className="flex flex-col justify-start items-start gap-8 bg-blue-100 p-6 xl:p-10 rounded-md w-full xl:w-2/5">
-        <div className="flex justify-start items-start">
-          <h3 className="font-bold tracking-wide leading-6 text-xl">
-            Order Summary
-          </h3>
-        </div>
-        <div className="flex flex-row justify-between items-start gap-14">
-          <div>
-            <p className="tracking-wide leading-6">
-              Quantity
-            </p>
+      {cartItems.length > 0 ? (
+        <div className="flex flex-col justify-start items-start gap-8 bg-blue-100 p-6 xl:p-10 rounded-md w-full xl:w-2/5">
+          <div className="flex justify-start items-start">
+            <h3 className="font-bold tracking-wide leading-6 text-xl">
+              Order Summary
+            </h3>
           </div>
-          <div>
-            <p className="tracking-wide leading-6">
-              2 Product
-            </p>
+          <div className="flex flex-row justify-between items-start gap-14">
+            <div>
+              <p className="tracking-wide leading-6">
+                Quantity
+              </p>
+            </div>
+            <div>
+              <p className="tracking-wide leading-6">
+                {totalItems} Product
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row justify-between items-start gap-10">
+            <div>
+              <p className="tracking-wide leading-6">
+                Sub Total
+              </p>
+            </div>
+            <div>
+              <p className="tracking-wide leading-6">
+                ${totalPrice}
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full">
+            <Button>
+              <ShoppingCart className="mr-2 h-4 w-4" />{" "}
+              <span className="font-bold">
+                Proceed to Checkout
+              </span>
+            </Button>
           </div>
         </div>
-        <div className="flex flex-row justify-between items-start gap-10">
-          <div>
-            <p className="tracking-wide leading-6">
-              Sub Total
-            </p>
-          </div>
-          <div>
-            <p className="tracking-wide leading-6">
-              $390
-            </p>
-          </div>
-        </div>
-        <div className="flex w-full">
-          <Button>
-            <ShoppingCart className="mr-2 h-4 w-4" />{" "}
-            <span className="font-bold">
-              Proceed to Checkout
-            </span>
-          </Button>
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }
