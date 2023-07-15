@@ -15,6 +15,7 @@ import {
 import { Button } from "../../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
 import { productQtyInCartSelector } from "@/store/features/cartSlice";
+import AddToCart from "../../../components/cart/addToCart";
 
 async function getProduct(name: string) {
   try {
@@ -190,12 +191,13 @@ export default async function GiveProduct({
 
           <div className="flex gap-4">
             <div className="flex">
-              <Button>
+              {/* <Button>
                 <ShoppingCart className="mr-2 h-4 w-4" />{" "}
                 <span className="font-bold">
                   Add to Cart
                 </span>
-              </Button>
+              </Button> */}
+              <AddToCart product={product_details} />
             </div>
             <div className="flex justify-center items-center">
               <h3 className="font-bold text-xl">

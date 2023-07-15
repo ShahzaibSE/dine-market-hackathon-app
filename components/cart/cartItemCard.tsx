@@ -12,8 +12,12 @@ import {
 import { Button } from "../ui/button";
 import { CartItem } from "@/type";
 import { urlForImage } from "../../sanity/lib/image";
-import { increateQuantity, decreaseQuantity } from "@/store/features/cartSlice";
+import {
+  increaseQuantity,
+  decreaseQuantity,
+} from "@/store/features/cartSlice";
 import { useAppDispatch } from "@/store/store";
+import QuantityBtn from "./quantityBtn";
 
 interface Props {
   cartItem: CartItem;
@@ -80,7 +84,7 @@ export default function CartItemCard({
               </p>
             </div>
             <div>
-              <div className="flex justify-start items-center gap-4">
+              {/* <div className="flex justify-start items-center gap-4">
                 <div className="flex justify-center items-center w-10 h-10 rounded-full bg-gray-400">
                   <span onClick={()=>{dispatch(decreaseQuantity)}}>
                     <Minus />
@@ -90,11 +94,28 @@ export default function CartItemCard({
                   <p>{cartItem.quantity}</p>
                 </div>
                 <div className="flex justify-center items-center w-10 h-10 rounded-full border-black border-2">
-                  <span onClick={()=>{dispatch(increateQuantity)}}>
+                  <span onClick={()=>{dispatch(increaseQuantity)}}>
                     <Plus />
                   </span>
                 </div>
-              </div>
+              </div> */}
+              <QuantityBtn
+                quantity={cartItem.quantity}
+                increaseQty={() =>
+                  dispatch(
+                    increaseQuantity(
+                      cartItem.product
+                    )
+                  )
+                }
+                decreaseQty={() =>
+                  dispatch(
+                    decreaseQuantity(
+                      cartItem.product
+                    )
+                  )
+                }
+              />
             </div>
           </div>
         </div>

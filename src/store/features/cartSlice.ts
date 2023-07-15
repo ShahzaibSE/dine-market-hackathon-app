@@ -18,19 +18,35 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    // addToCart: (
+    //   state: any,
+    //   action: PayloadAction<Product>
+    // ) => {
+    //   const itemInCart: Product | any =
+    //     state.cartItems.filter(
+    //       (item: Product) =>
+    //         item._id === action.payload._id
+    //     );
+    //   if (itemInCart) {
+    //     itemInCart.quantity++;
+    //   } else {
+    //     state.cartItems.push(itemInCart);
+    //   }
+    // },
     addToCart: (
       state: any,
       action: PayloadAction<Product>
     ) => {
-      const itemInCart: Product | any =
-        state.cartItems.filter(
-          (item: Product) =>
-            item._id === action.payload._id
-        );
-      if (itemInCart) {
-        itemInCart.quantity++;
-      } else {
-        state.cartItems.push(itemInCart);
+      const cartItem = state.cartItems.find(
+        (el:CartItem) =>
+          el.product._id === action.payload._id
+      );
+      if (cartItem) cartItem.qty++;
+      else {
+        state.cartItems.push({
+          product: action.payload,
+          qty: 1,
+        });
       }
     },
     removeItem: (
@@ -39,33 +55,59 @@ export const cartSlice = createSlice({
     ) => {
       const itemAfterDelete =
         state.cartItems.filter(
-          (item: Product) =>
-            item._id !== action.payload._id
+          (item: CartItem) =>
+            item.product._id !== action.payload._id
         );
       state.cartItems = itemAfterDelete;
     },
-    increateQuantity: (
-      state: any,
-      action: PayloadAction<Product>
-    ) => {
-      const item = state.cartItems.find(
-        (item: Product) =>
-          item._id == action.payload._id
+    // increaseQuantity: (
+    //   state: any,
+    //   action: PayloadAction<Product>
+    // ) => {
+    //   const item = state.cartItems.find(
+    //     (item: CartItem) =>
+    //       item.product._id == action.payload._id
+    //   );
+    //   item.quantity++;
+    // },
+    // decreaseQuantity: (
+    //   state: any,
+    //   action: PayloadAction<Product>
+    // ) => {
+    //   const item = state.cartItems.find(
+    //     (item: CartItem) =>
+    //       item.product._id == action.payload._id
+    //   );
+    //   if (item.quantity === 1) {
+    //     item.quantity = 1;
+    //   } else {
+    //     item.quantity--;
+    //   }
+    // },
+    increaseQuantity: (state, action: PayloadAction<Product>) => {
+      const cartItem = state.cartItems.find(
+        (el) => el.product._id === action.payload._id
       );
-      item.quantity++;
+      if (cartItem) cartItem.quantity++;
+      else {
+        state.cartItems.push({
+          product: action.payload,
+          quantity: 1,
+        });
+      }
     },
-    decreaseQuantity: (
-      state: any,
-      action: PayloadAction<Product>
-    ) => {
-      const item = state.cartItems.find(
-        (item: Product) =>
-          item._id == action.payload._id
+
+    decreaseQuantity: (state, action: PayloadAction<Product>) => {
+      const cartItem = state.cartItems.find(
+        (el) => el.product._id === action.payload._id
       );
-      if (item.quantity === 1) {
-        item.quantity = 1;
-      } else {
-        item.quantity--;
+      if (cartItem) {
+        cartItem.quantity--;
+        if (cartItem.quantity === 0) {
+          state.cartItems = state.cartItems.filter(
+            (el) => el.product._id !== action.payload._id
+          );
+        }
       }
     },
   },
@@ -74,15 +116,14 @@ export const cartSlice = createSlice({
 const cartItems = (state: RootState) =>
   state.cart.cartItems;
 // Creating Selectors.
-export const totalCartItemsSelector = createSelector(
-  [cartItems],
-  (cartItems) =>
+export const totalCartItemsSelector =
+  createSelector([cartItems], (cartItems) =>
     cartItems.reduce(
       (total: number, current: CartItem) =>
         (total += current.quantity),
       0
     )
-);
+  );
 
 export const totalPriceSelector = createSelector(
   [cartItems],
@@ -96,16 +137,22 @@ export const totalPriceSelector = createSelector(
     )
 );
 
-export const productQtyInCartSelector = createSelector(
-  [cartItems, (cartItems, productId: string) => productId],
-  (cartItems, productId) =>
-    cartItems.find((el) => el.product._id === productId)?.quantity
-);
+export const productQtyInCartSelector =
+  createSelector(
+    [
+      cartItems,
+      (cartItems, productId: string) => productId,
+    ],
+    (cartItems, productId) =>
+      cartItems.find(
+        (el) => el.product._id === productId
+      )?.quantity
+  );
 
 export const cartReducer = cartSlice.reducer;
 export const {
   addToCart,
   removeItem,
-  increateQuantity,
+  increaseQuantity,
   decreaseQuantity,
 } = cartSlice.actions;
