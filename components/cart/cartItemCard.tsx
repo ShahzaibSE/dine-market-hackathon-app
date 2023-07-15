@@ -80,7 +80,7 @@ export default function CartItemCard({
           <div className="flex justify-center xljustify-between items-center gap-32 xl:gap-x-80">
             <div>
               <p className="font-bold text-xl leading-6 tracking-wide">
-                {cartItem.product.price}
+                ${cartItem.product.price}
               </p>
             </div>
             <div>

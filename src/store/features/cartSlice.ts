@@ -115,6 +115,7 @@ export const cartSlice = createSlice({
 
 const cartItems = (state: RootState) =>
   state.cart.cartItems;
+
 // Creating Selectors.
 export const totalCartItemsSelector =
   createSelector([cartItems], (cartItems) =>

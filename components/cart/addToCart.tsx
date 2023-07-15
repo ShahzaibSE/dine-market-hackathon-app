@@ -8,7 +8,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import { Button } from "../../components/ui/button";
-import { productQtyInCartSelector, addToCart } from "@/store/features/cartSlice";
+import { productQtyInCartSelector, addToCart, increaseQuantity } from "@/store/features/cartSlice";
 import {
   useAppSelector,
   useAppDispatch,
@@ -27,7 +27,7 @@ export default function AddToCart(props: Props) {
     )
   );
   return (
-    <Button onClick={()=>dispatch(addToCart(props.product))}>
+    <Button onClick={()=>dispatch(increaseQuantity(props.product))}>
       <ShoppingCart className="mr-2 h-4 w-4" />{" "}
       <span className="font-bold">
         Add to Cart

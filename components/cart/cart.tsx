@@ -25,6 +25,10 @@ export default function CartComponent() {
   const totalItems = useAppSelector(
     totalCartItemsSelector
   );
+  console.log("Total Items - Cart Component");
+  console.log(totalItems);
+  console.log("Total Price - Cart Component");
+  console.log(totalPrice);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-0 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">
@@ -130,7 +134,7 @@ export default function CartComponent() {
             </div>
             <div>
               <p className="tracking-wide leading-6">
-                {totalItems} Product
+                {totalItems.toString()} Product
               </p>
             </div>
           </div>
@@ -142,7 +146,7 @@ export default function CartComponent() {
             </div>
             <div>
               <p className="tracking-wide leading-6">
-                ${totalPrice}
+                ${totalPrice.toString()}
               </p>
             </div>
           </div>
