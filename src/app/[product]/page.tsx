@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
@@ -58,8 +58,14 @@ export default async function GiveProduct({
   params: { product: string };
   searchParams: { id: string };
 }) {
-  const {data} = await (await fetch(`http:localhost:3000/api/productDetails?q=${params.product}`)).json();
+  const { data } = await (
+    await fetch(
+      `http:localhost:3000/api/productDetails?q=${params.product}`
+    )
+  ).json();
+  // const [currentImage, setcurrentImage] = useState();
   const product_details: Product = data[0];
+  console.log(product_details);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">
@@ -69,44 +75,59 @@ export default async function GiveProduct({
       </div> */}
         <div className="flex flex-row gap-4">
           <div className="flex">
-            {/* <div className="flex flex-col justify-between items-center gap-4">
-            <>
-              {currentProduct.previews?.map(
-                (product: any, index: number) => (
-                  <Image
-                  className="aspect-auto"
-                    key={index}
-                    src={urlForImage(product)
-                      .width(50)
-                      .url()}
-                    alt={currentProduct.name}
-                    width={50}
-                    height={50}
-                  />
-                )
-              )}
-            </>
-          </div> */}
             <div className="flex flex-col justify-start items-start gap-4">
-              <div className="flex">
-                <Image
-                  className="aspect-auto"
-                  alt="preview image 1"
-                  src="/assets/male-clothes/male-flex-button-bomber.png"
-                  width="50"
-                  height="50"
-                />
-              </div>
-              <div className="flex">
-                <Image
-                  className="aspect-auto"
-                  alt="preview image 1"
-                  src="/assets/male-clothes/male-flex-button-bomber.png"
-                  width="50"
-                  height="50"
-                />
+              <div className="flex flex-col justify-between items-center gap-4">
+                <>
+                  {product_details.previews?.map(
+                    (
+                      product: any,
+                      index: number
+                    ) => (
+                      <div
+                        className="flex"
+                        key={index}
+                      >
+                        <Image
+                          className="aspect-auto"
+                          key={index}
+                          src={urlForImage(
+                            product
+                          )
+                            .width(50)
+                            .url()}
+                          alt={
+                            product_details.name
+                          }
+                          width={50}
+                          height={50}
+                        />
+                      </div>
+                    )
+                  )}
+                </>
               </div>
             </div>
+
+            {/* <div className="flex flex-col justify-start items-start gap-4">
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="preview image 1"
+                  src="/assets/male-clothes/male-flex-button-bomber.png"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div className="flex">
+                <Image
+                  className="aspect-auto"
+                  alt="preview image 1"
+                  src="/assets/male-clothes/male-flex-button-bomber.png"
+                  width="50"
+                  height="50"
+                />
+              </div>
+            </div> */}
             <div className="flex"></div>
           </div>
           <div className="flex">
@@ -191,13 +212,9 @@ export default async function GiveProduct({
 
           <div className="flex gap-4">
             <div className="flex">
-              {/* <Button>
-                <ShoppingCart className="mr-2 h-4 w-4" />{" "}
-                <span className="font-bold">
-                  Add to Cart
-                </span>
-              </Button> */}
-              <AddToCart product={product_details} />
+              <AddToCart
+                product={product_details}
+              />
             </div>
             <div className="flex justify-center items-center">
               <h3 className="font-bold text-xl">
