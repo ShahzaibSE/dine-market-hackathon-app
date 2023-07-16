@@ -46,9 +46,9 @@ export default function CartItemCard({
         </div>
 
         <div className="flex flex-col justify-start items-start gap-4">
-          <div className="flex flex-row justify-between items-between xl:gap-32">
+          <div className="flex flex-row justify-between items-between gap-20 xl:gap-80">
             <div>
-              <h3 className="text-2xl leading-8 tracking-wide">
+              <h3 className="text-xl font-bold leading-8 tracking-wide">
                 {cartItem.product.name}
               </h3>
             </div>
@@ -77,28 +77,13 @@ export default function CartItemCard({
             </p>
           </div>
 
-          <div className="flex justify-center xljustify-between items-center gap-32 xl:gap-x-80">
+          <div className="flex flex-row justify-center xl:justify-between items-center gap-16 xl:gap-32 xl:gap-x-80">
             <div>
               <p className="font-bold text-xl leading-6 tracking-wide">
                 ${cartItem.product.price}
               </p>
             </div>
             <div>
-              {/* <div className="flex justify-start items-center gap-4">
-                <div className="flex justify-center items-center w-10 h-10 rounded-full bg-gray-400">
-                  <span onClick={()=>{dispatch(decreaseQuantity)}}>
-                    <Minus />
-                  </span>
-                </div>
-                <div>
-                  <p>{cartItem.quantity}</p>
-                </div>
-                <div className="flex justify-center items-center w-10 h-10 rounded-full border-black border-2">
-                  <span onClick={()=>{dispatch(increaseQuantity)}}>
-                    <Plus />
-                  </span>
-                </div>
-              </div> */}
               <QuantityBtn
                 quantity={cartItem.quantity}
                 increaseQty={() =>
