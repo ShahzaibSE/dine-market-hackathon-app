@@ -26,6 +26,7 @@ export default function ProductPreview({
                   <div
                     className="flex"
                     key={index}
+                    onMouseOver={()=>{setBigPreviewImage(product)}}
                   >
                     <Image
                       className="aspect-auto"

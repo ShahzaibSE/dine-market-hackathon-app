@@ -4,7 +4,6 @@ import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
-import { ProductDetail } from "../../../components/product/productDetails";
 import { Product } from "@/type";
 import { capitaliseString } from "@/utils";
 import {
@@ -16,6 +15,7 @@ import { Button } from "../../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
 import { productQtyInCartSelector } from "@/store/features/cartSlice";
 import AddToCart from "../../../components/cart/addToCart";
+import ProductPreview from "../../../components/product/productPreview";
 
 async function getProduct(name: string) {
   try {
@@ -73,7 +73,7 @@ export default async function GiveProduct({
         My name is{" "}
         {data[0].name}
       </div> */}
-        <div className="flex flex-row gap-4">
+        {/* <div className="flex flex-row gap-4">
           <div className="flex">
             <div className="flex flex-col justify-start items-start gap-4">
               <div className="flex flex-col justify-between items-center gap-4">
@@ -108,26 +108,6 @@ export default async function GiveProduct({
               </div>
             </div>
 
-            {/* <div className="flex flex-col justify-start items-start gap-4">
-              <div className="flex">
-                <Image
-                  className="aspect-auto"
-                  alt="preview image 1"
-                  src="/assets/male-clothes/male-flex-button-bomber.png"
-                  width="50"
-                  height="50"
-                />
-              </div>
-              <div className="flex">
-                <Image
-                  className="aspect-auto"
-                  alt="preview image 1"
-                  src="/assets/male-clothes/male-flex-button-bomber.png"
-                  width="50"
-                  height="50"
-                />
-              </div>
-            </div> */}
             <div className="flex"></div>
           </div>
           <div className="flex">
@@ -141,7 +121,8 @@ export default async function GiveProduct({
               />
             </div>
           </div>
-        </div>
+        </div> */}
+        <ProductPreview product={product_details} />
         <div className="flex flex-col gap-6">
           <div className="flex flex-col">
             <h2 className="tracking-widest text-2xl">
