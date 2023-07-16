@@ -14,7 +14,7 @@ export default function ProductPreview({
 }: Props) {
   const product_details = product;
   const [bigPreviewImage, setBigPreviewImage] =
-    useState<IImage>(product_details.imageUrl);
+    useState<IImage>(product_details?.imageUrl);
   return (
     <div className="flex flex-row gap-4">
       <div className="flex">

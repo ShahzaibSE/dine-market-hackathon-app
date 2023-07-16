@@ -65,7 +65,6 @@ export default async function GiveProduct({
   ).json();
   // const [currentImage, setcurrentImage] = useState();
   const product_details: Product = data[0];
-  console.log(product_details);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">

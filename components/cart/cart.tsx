@@ -37,77 +37,8 @@ export default function CartComponent() {
             Shopping Cart
           </h1>
         </div>
-        <div className="flex flex-wrap justify-between items-center gap-3">
+        <div className="flex flex-wrap justify-between items-center gap-3 max-h-full overflow-scroll">
           {/* Items cart list */}
-          {/* <div className="flex flex-wrap xl:flex-nowrap xl:flex-row justify-between items-center gap-6">
-            <div className="max-w-screen-xl">
-              <Image
-                alt="Female"
-                src="/assets/female-clothes/female-sweatshirt.png"
-                className="aspect-auto rounded-lg"
-                width={400}
-                height={400}
-              />
-            </div>
-
-            <div className="flex flex-col justify-start items-start gap-4">
-              <div className="flex flex-row justify-between items-between xl:gap-32">
-                <div>
-                  <h3 className="text-2xl leading-8 tracking-wide">
-                    Brushed Raglan Sweatshirt
-                  </h3>
-                </div>
-                <div className="flex">
-                  <Button>
-                    <DeleteIcon />
-                  </Button>
-                </div>
-              </div>
-
-              <div className="flex">
-                <h3 className="text-gray-400 font-bold text-xl leading-6 tracking-wide">
-                  Dress
-                </h3>
-              </div>
-
-              <div className="flex">
-                <p className="font-bold text-lg tracking-normal leading-6">
-                  Delivery Estimation
-                </p>
-              </div>
-
-              <div>
-                <p className="text-yellow-300 font-bold tracking-normal leading-6">
-                  5 Working Days
-                </p>
-              </div>
-
-              <div className="flex justify-center xljustify-between items-center gap-32 xl:gap-x-80">
-                <div>
-                  <p className="font-bold text-xl leading-6 tracking-wide">
-                    $195
-                  </p>
-                </div>
-                <div>
-                  <div className="flex justify-start items-center gap-4">
-                    <div className="flex justify-center items-center w-10 h-10 rounded-full bg-gray-400">
-                      <span>
-                        <Minus />
-                      </span>
-                    </div>
-                    <div>
-                      <p>1</p>
-                    </div>
-                    <div className="flex justify-center items-center w-10 h-10 rounded-full border-black border-2">
-                      <span>
-                        <Plus />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
           {cartItems.map(
             (cartItem, index: number) => (
               <CartItemCard
