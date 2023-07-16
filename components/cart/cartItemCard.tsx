@@ -15,6 +15,7 @@ import { urlForImage } from "../../sanity/lib/image";
 import {
   increaseQuantity,
   decreaseQuantity,
+  removeItem
 } from "@/store/features/cartSlice";
 import { useAppDispatch } from "@/store/store";
 import QuantityBtn from "./quantityBtn";
@@ -53,7 +54,7 @@ export default function CartItemCard({
               </h3>
             </div>
             <div className="flex">
-              <Button>
+              <Button onClick={()=>dispatch(removeItem(cartItem.product))}>
                 <DeleteIcon />
               </Button>
             </div>
