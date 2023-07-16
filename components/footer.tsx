@@ -32,17 +32,17 @@ export default function Footer() {
           </div>
           <div className="flex flex-row justify-between items-center gap-4">
             <div>
-              <Link href="#">
+              <Link href="https://twitter.com/ShahzaibNoor1" target="_blank">
                 <Twitter />
               </Link>
             </div>
             <div>
-              <Link href="#">
+              <Link href="https://web.facebook.com/shahzaib.noor.9/" target="_blank">
                 <Facebook />
               </Link>
             </div>
             <div>
-              <Link href="#">
+              <Link href="https://www.linkedin.com/in/shahzaib-noor-0a1b71b4" target="_blank">
                 <Linkedin />
               </Link>
             </div>
