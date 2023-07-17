@@ -1,7 +1,5 @@
 import React from "react";
 import MaleComponent from "../../../components/male_product/male";
-import Header from "../../../components/header";
-import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 
 const getMaleProducts = async function () {

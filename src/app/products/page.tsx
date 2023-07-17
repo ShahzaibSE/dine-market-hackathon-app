@@ -1,7 +1,5 @@
 import React from "react";
 import AllProductComponent from "../../../components/all_product/allProduct";
-import Header from "../../../components/header";
-import Footer from "../../../components/footer";
 import { client } from "../../../sanity/lib/client";
 
 const getAllProducts =
