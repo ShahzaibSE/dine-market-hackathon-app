@@ -21,7 +21,7 @@ export default function ProductPreview({
         <div className="flex flex-col justify-start items-start gap-4">
           <div className="flex flex-col justify-between items-center gap-4">
             <>
-              {product_details.previews?.map(
+              {product_details?.previews?.map(
                 (product: any, index: number) => (
                   <div
                     className="flex"

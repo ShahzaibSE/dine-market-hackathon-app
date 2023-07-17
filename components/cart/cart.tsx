@@ -30,7 +30,7 @@ export default function CartComponent() {
   console.log("Total Price - Cart Component");
   console.log(totalPrice);
   return (
-    <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-0 xl:container">
+    <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">
         <div className="flex my-4">
           <h1 className="font-bold text-2xl xl:text-3xl leading-6 tracking-wide">
