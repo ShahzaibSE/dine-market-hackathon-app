@@ -29,11 +29,6 @@ export default function Header() {
   let cart_items: number = 0;
   const [isNavigate, setNavigate] =
     useState(false);
-
-  console.log(
-    "Total Items - Header: ",
-    totalItems
-  );
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2 md:p-6">
