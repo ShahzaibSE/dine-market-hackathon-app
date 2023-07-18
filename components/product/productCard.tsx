@@ -57,39 +57,35 @@ export default function ProductCard(props: {
   //
   return (
     <div>
-      {props.product._id != null ? (
-        <Link href={`/${_id}`}>
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Card>
-              <CardContent>
-                <div className="flex justify-center items-center">
-                  <Image
-                    alt={name}
-                    src={urlForImage(imageUrl)
-                      .width(300)
-                      .url()}
-                    width="300"
-                    height="320"
-                    className="max-w-full"
-                  />
-                </div>
-              </CardContent>
-              <CardFooter className="flex justify-center items-center">
-                <div className="flex flex-col justify-center items-center gap-2">
-                  <h3 className="font-bold text-2xl text-center md:text-center">
-                    {name}
-                  </h3>
-                  <h3 className="font-bold text-2xl">
-                    ${price}
-                  </h3>
-                </div>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        </Link>
-      ) : (
-        <div></div>
-      )}
+      <Link href={`/${_id}`}>
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <Card>
+            <CardContent>
+              <div className="flex justify-center items-center">
+                <Image
+                  alt={name}
+                  src={urlForImage(imageUrl)
+                    .width(300)
+                    .url()}
+                  width="300"
+                  height="320"
+                  className="max-w-full"
+                />
+              </div>
+            </CardContent>
+            <CardFooter className="flex justify-center items-center">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <h3 className="font-bold text-2xl text-center md:text-center">
+                  {name}
+                </h3>
+                <h3 className="font-bold text-2xl">
+                  ${price}
+                </h3>
+              </div>
+            </CardFooter>
+          </Card>
+        </motion.div>
+      </Link>
     </div>
   );
 }
