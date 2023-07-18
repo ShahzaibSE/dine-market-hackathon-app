@@ -21,6 +21,7 @@ export default async function FemalePage() {
     const { data } = await (
       await fetch(path)
     ).json();
+    // const data = await getFemaleProducts();
     const apiData: Array<Product> =
       data.length > 0 ? data : [];
 

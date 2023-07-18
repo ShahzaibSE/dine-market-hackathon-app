@@ -4,6 +4,7 @@ import {
 } from "next/server";
 
 import { client } from "../../../../sanity/lib/client";
+import { Product } from "@/type";
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,14 +15,15 @@ export async function GET(request: NextRequest) {
         : `*[_type == 'product' && gender == '${searchParams.get(
             "gender"
           )}']`;
-    console.log("Query");
-    console.log(query)
-    const products = await client.fetch(query);
+    const products = await client.fetch(query, {
+      next: { revalidate: 60 },
+    });
+    // const products = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-06-01/data/query/production?query=${query}`);
 
     //
     return NextResponse.json({
       status: true,
-      data: products.length > 0 ? products : [],
+      data: products,
     });
   } catch (err) {
     return NextResponse.json({

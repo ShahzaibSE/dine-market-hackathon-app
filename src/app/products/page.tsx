@@ -8,7 +8,7 @@ import { Product } from "@/type";
 const getAllProducts = async function () {
   try {
     const res = await client.fetch(
-      `*[_type == 'product' && gender == 'male' || gender == 'female' || gender == 'kid'] `
+      `*[_type == 'product' && gender == 'male' || gender == 'female'] `
     );
     return res;
   } catch (err) {
@@ -22,6 +22,8 @@ export default async function MalePage() {
     const { data } = await (
       await fetch(path)
     ).json();
+
+    // const data = await getAllProducts();
 
     const apiData: Array<Product> =
       data.length > 0 ? data : [];
