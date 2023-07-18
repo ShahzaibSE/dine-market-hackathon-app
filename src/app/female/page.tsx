@@ -18,10 +18,10 @@ const getFemaleProducts = async function () {
 export default async function FemalePage() {
   try {
     const path = `${BASE_PATH}api/product?gender=female`;
-    const { data } = await (
-      await fetch(path)
-    ).json();
-    // const data = await getFemaleProducts();
+    // const { data } = await (
+    //   await fetch(path)
+    // ).json();
+    const data = await getFemaleProducts();
     const apiData: Array<Product> =
       data.length > 0 ? data : [];
 
