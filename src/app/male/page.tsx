@@ -18,10 +18,10 @@ const getMaleProducts = async function () {
 export default async function MalePage() {
   try {
     const path = `${BASE_PATH}api/product?gender=male`;
-    const { data } = await (
-      await fetch(path)
-    ).json();
-    // const data = await getMaleProducts();
+    // const { data } = await (
+    //   await fetch(path)
+    // ).json();
+    const data = await getMaleProducts();
     const apiData: Array<Product> =
       data.length > 0 ? data : [];
 

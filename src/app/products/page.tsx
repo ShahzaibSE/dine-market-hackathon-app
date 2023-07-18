@@ -19,11 +19,11 @@ const getAllProducts = async function () {
 export default async function MalePage() {
   try {
     const path = `${BASE_PATH}api/products`;
-    const { data } = await (
-      await fetch(path)
-    ).json();
+    // const { data } = await (
+    //   await fetch(path)
+    // ).json();
 
-    // const data = await getAllProducts();
+    const data = await getAllProducts();
 
     const apiData: Array<Product> =
       data.length > 0 ? data : [];
