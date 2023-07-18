@@ -25,10 +25,10 @@ export default function CartComponent() {
   const totalItems = useAppSelector(
     totalCartItemsSelector
   );
-  console.log("Total Items - Cart Component");
-  console.log(totalItems);
-  console.log("Total Price - Cart Component");
-  console.log(totalPrice);
+  // console.log("Total Items - Cart Component");
+  // console.log(totalItems);
+  // console.log("Total Price - Cart Component");
+  // console.log(totalPrice);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">

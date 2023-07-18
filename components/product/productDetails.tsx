@@ -24,8 +24,8 @@ export function ProductDetail(props: {
   product_detail: Product;
 }) {
   const currentProduct = props.product_detail;
-  console.log("Show Product details - Product Detail Component");
-  console.log(currentProduct);
+  // console.log("Show Product details - Product Detail Component");
+  // console.log(currentProduct);
   return (
     <div className="flex">
       <div className="flex">

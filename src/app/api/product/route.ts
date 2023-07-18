@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     //
     return NextResponse.json({
       status: true,
-      data: products,
+      data: products.length > 0 ? products : [],
     });
   } catch (err) {
     return NextResponse.json({

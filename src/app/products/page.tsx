@@ -1,27 +1,45 @@
 import React from "react";
 import AllProductComponent from "../../../components/all_product/allProduct";
 import { client } from "../../../sanity/lib/client";
+import { Suspense } from "react";
+import { BASE_PATH } from "../../../sanity/lib/base";
+import { Product } from "@/type";
 
-const getAllProducts =
-  async function () {
-    try {
-      const res = await client.fetch(
-        `*[_type == 'product' && gender == 'male' || gender == 'female' || gender == 'kid'] `
-      );
-      return res;
-    } catch (err) {
-      throw err;
-    }
-  };
+const getAllProducts = async function () {
+  try {
+    const res = await client.fetch(
+      `*[_type == 'product' && gender == 'male' || gender == 'female' || gender == 'kid'] `
+    );
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
 
 export default async function MalePage() {
-  const {data} =
-  await (await fetch(`http://localhost:3000/api/products`)).json();
-  console.log("All Products");
-  console.log(data);
-  return (
-    <div>
-        <AllProductComponent all_products={data}/>
-    </div>
-  );
+  try {
+    const path = `${BASE_PATH}api/products`;
+    const { data } = await (
+      await fetch(path)
+    ).json();
+
+    const apiData: Array<Product> =
+      data.length > 0 ? data : [];
+
+    // console.log("All Products");
+    // console.log(data);
+    return (
+      <div>
+        <Suspense
+          fallback={<div>Loading...</div>}
+        >
+          <AllProductComponent
+            all_products={apiData}
+          />
+        </Suspense>
+      </div>
+    );
+  } catch (err) {
+    return <div>Error</div>;
+  }
 }

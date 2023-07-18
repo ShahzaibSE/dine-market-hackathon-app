@@ -34,7 +34,7 @@ export default function ProductPreview({
                       src={urlForImage(product)
                         .width(50)
                         .url()}
-                      alt={product_details.name}
+                        alt={`${product_details?.name}`}
                       width={50}
                       height={50}
                     />
@@ -51,7 +51,7 @@ export default function ProductPreview({
         <div className="flex justify-center items-center w-full h-full relative">
           <Image
             className="object-cover"
-            alt={product_details.name}
+            alt={`${product_details?.name}`}
             src={urlForImage(bigPreviewImage)
               .width(600)
               .url()}

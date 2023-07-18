@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MaleComponent from "../../../components/male_product/male";
 import { client } from "../../../sanity/lib/client";
+import { BASE_PATH } from "../../../sanity/lib/base";
+import { Product } from "@/type";
 
 const getMaleProducts = async function () {
   try {
@@ -14,13 +16,26 @@ const getMaleProducts = async function () {
 };
 
 export default async function MalePage() {
-  const {data} =
-  await (await fetch(`http://localhost:3000/api/product?gender=male`)).json();
-  return (
-    <div>
-      <MaleComponent
-        male_products={data}
-      />
-    </div>
-  );
+  try {
+    const path = `${BASE_PATH}api/product?gender=male`;
+    const { data } = await (
+      await fetch(path)
+    ).json();
+    const apiData: Array<Product> =
+      data.length > 0 ? data : [];
+
+    return (
+      <div>
+        <Suspense
+          fallback={<div>Loading...</div>}
+        >
+          <MaleComponent
+            male_products={apiData}
+          />
+        </Suspense>
+      </div>
+    );
+  } catch (err) {
+    return <div>Error</div>;
+  }
 }
