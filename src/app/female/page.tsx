@@ -6,11 +6,9 @@ import { Product } from "@/type";
 
 const getFemaleProducts = async function () {
   try {
-    // const res = await client.fetch(
-    //   `*[_type == 'product' && gender == 'female'] `
-    // );
-
-    const res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-06-01/data/query/production?query=*[_type == 'product' && gender == 'female']`);
+    const res = await client.fetch(
+      `*[_type == 'product' && gender == 'female'] `
+    );
     return res;
   } catch (err) {
     throw err;
@@ -20,13 +18,12 @@ const getFemaleProducts = async function () {
 export default async function FemalePage() {
   try {
     const path = `${BASE_PATH}api/product?gender=female`;
-    // const { data } = await (
-    //   await fetch(path)
-    // ).json();
-    const data = await getFemaleProducts();
-    // const apiData: Array<Product> =
-    //   data.length > 0 ? data : [];
-    const apiData = data;
+    const { data } = await (
+      await fetch(path)
+    ).json();
+    // const data = await getFemaleProducts();
+    const apiData: Array<Product> =
+      data.length > 0 ? data : [];
 
     console.log("API Path", path);
     return (
