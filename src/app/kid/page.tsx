@@ -1,6 +1,7 @@
 import React from "react";
 import KidComponent from "../../../components/kid_product/kid";
 import { client } from "../../../sanity/lib/client";
+import { BASE_PATH } from "../../../sanity/lib/base";
 
 const getFemaleProducts = async function () {
   try {
@@ -14,8 +15,8 @@ const getFemaleProducts = async function () {
 };
 
 export default async function KidPage() {
-  const {data} =
-  await (await fetch(`http://localhost:3000/api/product?gender=kid`)).json();
+  const res = await fetch(`${BASE_PATH}/api/product?gender=kid`);
+  const data = await res.json();
   return (
     <div>
       <KidComponent kid_products={data} />
