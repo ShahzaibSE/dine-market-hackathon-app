@@ -47,25 +47,25 @@ export default function ProductCard(props: {
   product: Product;
 }) {
   try {
-    const {
-      _id,
-      name,
-      gender,
-      price,
-      imageUrl,
-      category,
-    } = props.product;
+    // const {
+    //   _id,
+    //   name,
+    //   gender,
+    //   price,
+    //   imageUrl,
+    //   category,
+    // } = props.product;
     //
     return (
       <div>
-        <Link href={`/${_id == null ? "" : _id}`}>
+        <Link href={`/${props.product._id == null ? "" : props.product._id}`}>
           <motion.div whileHover={{ scale: 1.1 }}>
             <Card>
               <CardContent>
                 <div className="flex justify-center items-center">
                   <Image
-                    alt={name == null ? "N/A" : name}
-                    src={urlForImage(imageUrl)
+                    alt={props.product.name == null ? "N/A" : props.product.name}
+                    src={urlForImage(props.product.imageUrl)
                       .width(300)
                       .url()}
                     width="300"
@@ -77,10 +77,10 @@ export default function ProductCard(props: {
               <CardFooter className="flex justify-center items-center">
                 <div className="flex flex-col justify-center items-center gap-2">
                   <h3 className="font-bold text-2xl text-center md:text-center">
-                    {name == null ? "N/A" : name}
+                    {props.product.name == null ? "N/A" : props.product.name}
                   </h3>
                   <h3 className="font-bold text-2xl">
-                    ${price == null ? 0 : price}
+                    ${props.product.price == null ? 0 : props.product.price}
                   </h3>
                 </div>
               </CardFooter>
