@@ -58,16 +58,33 @@ export default function ProductCard(props: {
     //
     return (
       <div>
-        <Link href={`/${props.product._id == null ? "" : props.product._id}`}>
+        <Link
+          href={`/${
+            props.product._id == null
+              ? ""
+              : props.product._id
+          }`}
+        >
           <motion.div whileHover={{ scale: 1.1 }}>
             <Card>
               <CardContent>
                 <div className="flex justify-center items-center">
                   <Image
-                    alt={props.product.name == null ? "N/A" : props.product.name}
-                    src={urlForImage(props.product.imageUrl)
-                      .width(300)
-                      .url()}
+                    alt={
+                      props.product.name == null
+                        ? "N/A"
+                        : props.product.name
+                    }
+                    src={
+                      props.product.imageUrl ==
+                      null
+                        ? ""
+                        : urlForImage(
+                            props.product.imageUrl
+                          )
+                            .width(300)
+                            .url()
+                    }
                     width="300"
                     height="320"
                     className="max-w-full"
@@ -77,10 +94,15 @@ export default function ProductCard(props: {
               <CardFooter className="flex justify-center items-center">
                 <div className="flex flex-col justify-center items-center gap-2">
                   <h3 className="font-bold text-2xl text-center md:text-center">
-                    {props.product.name == null ? "N/A" : props.product.name}
+                    {props.product.name == null
+                      ? "N/A"
+                      : props.product.name}
                   </h3>
                   <h3 className="font-bold text-2xl">
-                    ${props.product.price == null ? 0 : props.product.price}
+                    $
+                    {props.product.price == null
+                      ? 0
+                      : props.product.price}
                   </h3>
                 </div>
               </CardFooter>
