@@ -58,7 +58,7 @@ export default function ProductCard(props: {
     //
     return (
       <div>
-        <Link href={`/${_id}`}>
+        <Link href={`/${_id == null ? "" : _id}`}>
           <motion.div whileHover={{ scale: 1.1 }}>
             <Card>
               <CardContent>
