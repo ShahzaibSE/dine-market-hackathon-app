@@ -46,46 +46,50 @@ export function createHyphenatedName(
 export default function ProductCard(props: {
   product: Product;
 }) {
-  const {
-    _id,
-    name,
-    gender,
-    price,
-    imageUrl,
-    category,
-  } = props.product;
-  //
-  return (
-    <div>
-      <Link href={`/${_id}`}>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Card>
-            <CardContent>
-              <div className="flex justify-center items-center">
-                <Image
-                  alt={name}
-                  src={urlForImage(imageUrl)
-                    .width(300)
-                    .url()}
-                  width="300"
-                  height="320"
-                  className="max-w-full"
-                />
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-center items-center">
-              <div className="flex flex-col justify-center items-center gap-2">
-                <h3 className="font-bold text-2xl text-center md:text-center">
-                  {name}
-                </h3>
-                <h3 className="font-bold text-2xl">
-                  ${price}
-                </h3>
-              </div>
-            </CardFooter>
-          </Card>
-        </motion.div>
-      </Link>
-    </div>
-  );
+  try {
+    const {
+      _id,
+      name,
+      gender,
+      price,
+      imageUrl,
+      category,
+    } = props.product;
+    //
+    return (
+      <div>
+        <Link href={`/${_id}`}>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Card>
+              <CardContent>
+                <div className="flex justify-center items-center">
+                  <Image
+                    alt={name}
+                    src={urlForImage(imageUrl)
+                      .width(300)
+                      .url()}
+                    width="300"
+                    height="320"
+                    className="max-w-full"
+                  />
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-center items-center">
+                <div className="flex flex-col justify-center items-center gap-2">
+                  <h3 className="font-bold text-2xl text-center md:text-center">
+                    {name}
+                  </h3>
+                  <h3 className="font-bold text-2xl">
+                    ${price}
+                  </h3>
+                </div>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        </Link>
+      </div>
+    );
+  } catch (err) {
+    return <div>Product Not Available</div>;
+  }
 }
