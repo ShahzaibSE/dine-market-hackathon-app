@@ -64,7 +64,7 @@ export default function ProductCard(props: {
               <CardContent>
                 <div className="flex justify-center items-center">
                   <Image
-                    alt={name}
+                    alt={name == null ? "N/A" : name}
                     src={urlForImage(imageUrl)
                       .width(300)
                       .url()}
@@ -77,10 +77,10 @@ export default function ProductCard(props: {
               <CardFooter className="flex justify-center items-center">
                 <div className="flex flex-col justify-center items-center gap-2">
                   <h3 className="font-bold text-2xl text-center md:text-center">
-                    {name}
+                    {name == null ? "N/A" : name}
                   </h3>
                   <h3 className="font-bold text-2xl">
-                    ${price}
+                    ${price == null ? 0 : price}
                   </h3>
                 </div>
               </CardFooter>
