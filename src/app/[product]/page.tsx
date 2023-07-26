@@ -58,6 +58,7 @@ export default async function GiveProduct({
   params: { product: string };
   searchParams: { id: string };
 }) {
+  try{
   const { data } = await (
     await fetch(
       `http:localhost:3000/api/productDetails?q=${params.product}`
@@ -283,4 +284,7 @@ export default async function GiveProduct({
       </div>
     </div>
   );
+      }catch(err){
+        return (<div>Product Details Not Available</div>)
+      }
 }
