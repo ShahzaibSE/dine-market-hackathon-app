@@ -305,6 +305,7 @@ export default async function GiveProduct({
       </div>
     );
   } catch (err) {
+    console.log(err);
     return (
       <div>Product Details Not Available</div>
     );
