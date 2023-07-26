@@ -5,8 +5,8 @@ export default function FemaleComponent(
   props: any
 ) {
   const { female_products } = props;
-  console.log("Female Products")
-  console.log(female_products);
+  // console.log("Female Products")
+  // console.log(female_products);
   //
   return (
     <div className="flex flex-wrap justify-between items-center gap-4">

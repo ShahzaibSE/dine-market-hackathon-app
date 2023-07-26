@@ -13,15 +13,21 @@ export default function ProductPreview({
   product,
 }: Props) {
   const product_details = product;
+  let previews = product.previews.length == null ? [] : product.previews
+  // const imageUrl: IImage | undefined =  
   const [bigPreviewImage, setBigPreviewImage] =
     useState<IImage>(product_details?.imageUrl);
+  console.log("Product Details - Product Preview");
+  console.log(product_details?.imageUrl);
+  console.log(product_details?.previews?.length);
+  console.log(previews);
   return (
     <div className="flex flex-row gap-4">
       <div className="flex">
         <div className="flex flex-col justify-start items-start gap-4">
           <div className="flex flex-col justify-between items-center gap-4">
             <>
-              {product_details?.previews?.map(
+              {previews.map(
                 (product: any, index: number) => (
                   <div
                     className="flex"
