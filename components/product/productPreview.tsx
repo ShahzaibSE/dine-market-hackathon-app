@@ -14,10 +14,10 @@ export default function ProductPreview({
 }: Props) {
   const product_details = product;
   const productInfo = {
-    previews: product_details.previews == null ? [] : product_details.previews,
-    imageUrl: product_details.imageUrl == null ? "" : product_details.imageUrl
+    previews: product_details?.previews == undefined ? [] : product_details.previews,
+    imageUrl: product_details?.imageUrl == undefined ? "" : product_details.imageUrl
   }
-  let previews = product.previews.length == null ? [] : product.previews
+  // let previews = product.previews.length == null ? [] : product.previews
   // const imageUrl: IImage | undefined =  
   const [bigPreviewImage, setBigPreviewImage] =
     useState<IImage>(product_details?.imageUrl);
