@@ -12,6 +12,8 @@ interface Props {
 export default function ProductPreview({
   product,
 }: Props) {
+  const defaultImage = {_type:"image", asset: {_ref:"image-2228e40aa700a68031eff4016f9e625ade813a89-278x296-png",
+    _type:"reference"}}
   const product_details = product;
   const productInfo = {
     previews: product_details?.previews == undefined ? [] : product_details.previews,
@@ -22,9 +24,6 @@ export default function ProductPreview({
   const [bigPreviewImage, setBigPreviewImage] =
     useState<IImage>(product_details?.imageUrl);
   console.log("Product Details - Product Preview");
-  // console.log(product_details?.imageUrl);
-  // console.log(product_details?.previews?.length);
-  // console.log(previews);
   console.log(productInfo);
   return (
     <div className="flex flex-row gap-4">
@@ -42,7 +41,7 @@ export default function ProductPreview({
                     <Image
                       className="aspect-auto"
                       key={index}
-                      src={urlForImage(product && product)
+                      src={urlForImage(product == undefined ? defaultImage : product)
                         .width(50)
                         .url()}
                         alt={`${product_details?.name}`}
