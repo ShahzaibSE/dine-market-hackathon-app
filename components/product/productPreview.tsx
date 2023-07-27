@@ -16,8 +16,8 @@ export default function ProductPreview({
     _type:"reference"}}
   const product_details = product;
   const productInfo = {
-    previews: product_details?.previews == undefined ? [] : product_details.previews,
-    imageUrl: product_details?.imageUrl == undefined ? "" : product_details.imageUrl
+    previews: product_details?.previews == undefined ? [defaultImage] : product_details.previews,
+    imageUrl: product_details?.imageUrl == undefined ? defaultImage : product_details.imageUrl
   }
   // let previews = product.previews.length == null ? [] : product.previews
   // const imageUrl: IImage | undefined =  
@@ -31,7 +31,7 @@ export default function ProductPreview({
         <div className="flex flex-col justify-start items-start gap-4">
           <div className="flex flex-col justify-between items-center gap-4">
             <>
-              {product_details?.previews && product_details?.previews.map(
+              {productInfo.previews && productInfo.previews.map(
                 (product: any, index: number) => (
                   <div
                     className="flex"
@@ -41,7 +41,7 @@ export default function ProductPreview({
                     <Image
                       className="aspect-auto"
                       key={index}
-                      src={urlForImage(product == undefined ? defaultImage : product)
+                      src={urlForImage(product)
                         .width(50)
                         .url()}
                         alt={`${product_details?.name}`}
