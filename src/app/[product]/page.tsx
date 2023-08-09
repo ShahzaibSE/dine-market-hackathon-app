@@ -74,11 +74,11 @@ export default async function GiveProduct({
   try {
     const product_detailss =
       await getProductDetails(params.product);
-    const { data } = await (
-      await fetch(
-        `http:localhost:3000/api/productDetails?q=${params.product}`
-      )
-    ).json();
+    // const { data } = await (
+    //   await fetch(
+    //     `http:localhost:3000/api/productDetails?q=${params.product}`
+    //   )
+    // ).json();
     // const [currentImage, setcurrentImage] = useState();
     // const product_details: Product = data[0];
     const product_details: Product = product_detailss[0];
@@ -87,59 +87,6 @@ export default async function GiveProduct({
     return (
       <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
         <div className="xl:container flex flex-wrap xl:flex-row gap-10">
-          {/* <div className="flex">
-        My name is{" "}
-        {data[0].name}
-      </div> */}
-          {/* <div className="flex flex-row gap-4">
-          <div className="flex">
-            <div className="flex flex-col justify-start items-start gap-4">
-              <div className="flex flex-col justify-between items-center gap-4">
-                <>
-                  {product_details.previews?.map(
-                    (
-                      product: any,
-                      index: number
-                    ) => (
-                      <div
-                        className="flex"
-                        key={index}
-                      >
-                        <Image
-                          className="aspect-auto"
-                          key={index}
-                          src={urlForImage(
-                            product
-                          )
-                            .width(50)
-                            .url()}
-                          alt={
-                            product_details.name
-                          }
-                          width={50}
-                          height={50}
-                        />
-                      </div>
-                    )
-                  )}
-                </>
-              </div>
-            </div>
-
-            <div className="flex"></div>
-          </div>
-          <div className="flex">
-            <div className="flex justify-center items-center w-full h-full relative">
-              <Image
-                className="object-cover"
-                alt="preview image 1"
-                src="/assets/male-clothes/male-flex-button-bomber.png"
-                width={600}
-                height={600}
-              />
-            </div>
-          </div>
-        </div> */}
           <ProductPreview
             product={product_details}
           />
@@ -305,6 +252,7 @@ export default async function GiveProduct({
       </div>
     );
   } catch (err) {
+    console.log("Product Detail Page Error")
     console.log(err);
     return (
       <div>Product Details Not Available</div>
