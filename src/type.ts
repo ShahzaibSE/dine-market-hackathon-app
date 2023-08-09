@@ -9,7 +9,7 @@ export interface Product {
   category?: string;
   imageUrl: IImage;
   previews: Array<IImage>;
-  quantity?: number;
+  quantity: number;
 }
 
 export interface CartItem {

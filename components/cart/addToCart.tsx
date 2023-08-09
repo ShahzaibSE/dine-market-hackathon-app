@@ -23,7 +23,7 @@ export default function AddToCart(props: Props) {
   const quantity = useAppSelector((state) =>
     productQtyInCartSelector(
       state,
-      props.product._id
+      props.product?._id == undefined ? " " : props.product._id
     )
   );
   return (
