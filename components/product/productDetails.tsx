@@ -131,7 +131,6 @@ export function ProductDetail(props: {
             </div>
           </div>
         </div>
-        {/* <ProductDetail product_detail={currentProduct} /> */}
       </div>
 
       <div className="xl:container flex flex-row justify-start items-start gap-6">

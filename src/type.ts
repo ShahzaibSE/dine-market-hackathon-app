@@ -10,6 +10,7 @@ export interface Product {
   imageUrl: IImage;
   previews: Array<IImage>;
   quantity: number;
+  user_id?: string;
 }
 
 export interface CartItem {
