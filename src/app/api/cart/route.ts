@@ -26,6 +26,7 @@ export const GET = async function () {
       isError: false,
     });
   } catch (err) {
+    // console.log(err);
     return NextResponse.json({
       status: false,
       resCode: 500,
@@ -52,8 +53,12 @@ export const POST = async function (
       .insert(cartTable)
       .values({
         product_id: req.product_id,
-        quantity: 1,
-        user_id: setCookies.get("user_id")?.value as string
+        quantity: Number(req.quantity) as number,
+        user_id: setCookies.get("user_id")?.value as string,
+        name: req.name,
+        imageUrl: req.imageUrl,
+        gender: req.gender,
+        price: Number(req.price) as number
       });
     //
     return NextResponse.json({
