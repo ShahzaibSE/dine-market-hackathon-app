@@ -35,20 +35,6 @@ export default function AddToCart(props: Props) {
     )
   );
   //
-
-  // create table cart(
-  //   id serial primary key,
-  //   product_id varchar(255) not null,
-  //   name varchar(255) not null,
-  //   description varchar(255),
-  //   category varchar(255),
-  //   gender varchar(255) not null,
-  //   price integer not null,
-  //   imageUrl json not null,
-  //   previews json[],
-  //   quantity integer not null,
-  //   user_id varchar(255) not null
-  //  )
   const addItemsToCart = function(cart_item: Product) {
     try{
       const cartItemReqObj = {
@@ -62,10 +48,10 @@ export default function AddToCart(props: Props) {
       }
       console.log("Item that is being added to db");
       
-      add_to_cart(cartItemReqObj).then(res => {
-        console.log("Adding item to database");
-        console.log(res);
-      }).catch((err)=>{console.log(err)});
+      // add_to_cart(cartItemReqObj).then(res => {
+      //   console.log("Adding item to database");
+      //   console.log(res);
+      // }).catch((err)=>{console.log(err)});
       dispatch(increaseQuantity(cart_item));
     }
     catch(err){

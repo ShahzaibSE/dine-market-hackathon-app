@@ -2,7 +2,7 @@ import {
   createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { CartItem, Product } from "@/type";
+import { CartItem, Product, CartAPIRequest } from "@/type";
 import { BASE_PATH } from "../../../sanity/lib/base";
 
 export const cartAPI = createApi({
@@ -16,8 +16,8 @@ export const cartAPI = createApi({
     getCartItems: builder.query<CartItem[], null>(
       { query: () => "/cart" }
     ),
-    addToCartMutation: builder.mutation<Product, Product>({
-      query: (payload: Product) => ({
+    addToCartMutation: builder.mutation<CartAPIRequest, CartAPIRequest>({
+      query: (payload: CartAPIRequest) => ({
         url: "/cart",
         method: "POST",
         body: payload,

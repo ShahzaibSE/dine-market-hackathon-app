@@ -1,21 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import { Product } from "@/type";
-import {
-  Plus,
-  Minus,
-  Recycle,
-  ShoppingCart,
-  DeleteIcon,
-} from "lucide-react";
+import { CartAPIRequest } from "@/type";
+import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import { useAppSelector } from "@/store/store";
 import CartItemCard from "./cartItemCard";
 import { totalPriceSelector } from "@/store/features/cartSlice";
 import { totalCartItemsSelector } from "@/store/features/cartSlice";
+import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
 
 export default function CartComponent() {
+  const [add_to_cart, response] =
+    useAddToCartMutationMutation();
   const cartItems = useAppSelector(
     (state) => state.cart.cartItems
   );
@@ -25,10 +22,37 @@ export default function CartComponent() {
   const totalItems = useAppSelector(
     totalCartItemsSelector
   );
-  // console.log("Total Items - Cart Component");
-  // console.log(totalItems);
-  // console.log("Total Price - Cart Component");
-  // console.log(totalPrice);
+  console.log("Cart Items");
+  console.log(cartItems);
+  console.log("Total Items - Cart Component");
+  console.log(totalItems);
+  console.log("Total Price - Cart Component");
+  console.log(totalPrice);
+
+  useEffect(() => {
+    const cartRequestBody: CartAPIRequest = {
+      cartDetails: cartItems,
+      totalPrice,
+      cartCount: totalItems,
+    };
+    console.log(
+      "Cart Items added/updated - Cart Client Component"
+    );
+    console.log(cartRequestBody);
+    add_to_cart(cartRequestBody)
+      .then((res) => {
+        console.log("Adding item to database");
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [
+    cartItems,
+    totalItems,
+    totalPrice,
+    add_to_cart,
+  ]);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">

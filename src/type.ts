@@ -19,7 +19,7 @@ export interface CartItem {
 }
 
 export interface CartAPIRequest {
-  user_id: string;
+  user_id?: string;
   totalPrice: number;
   cartCount: number;
   cartDetails: Array<CartItem>
