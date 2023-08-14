@@ -16,7 +16,7 @@ export const cartAPI = createApi({
     getCartItems: builder.query<CartItem[], null>(
       { query: () => "/cart" }
     ),
-    addToCart: builder.mutation<CartItem, CartItem>({
+    addToCartMutation: builder.mutation<CartItem, CartItem>({
       query: (payload: CartItem) => ({
         url: "/cart",
         method: "POST",
@@ -28,3 +28,5 @@ export const cartAPI = createApi({
     }),
   }),
 });
+
+export const {useGetCartItemsQuery, useAddToCartMutationMutation} = cartAPI;
