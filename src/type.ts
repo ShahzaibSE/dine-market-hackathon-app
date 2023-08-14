@@ -17,3 +17,10 @@ export interface CartItem {
   product: Product;
   quantity: number;
 }
+
+export interface CartAPIRequest {
+  user_id: string;
+  totalPrice: number;
+  cartCount: number;
+  cartDetails: Array<CartItem>
+}

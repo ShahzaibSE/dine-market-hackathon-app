@@ -10,6 +10,8 @@ import {
 
 import {v4 as uuid} from "uuid";
 import { cookies } from "next/headers";
+//
+import { CartAPIRequest } from "@/type";
 
 export const GET = async function () {
   try {
@@ -49,17 +51,26 @@ export const POST = async function (
       setCookies.set("user_id", uid);
     }
     //
+    // const cartItem = {
+    //   product_id: req.product_id,
+    //   quantity: Number(req.quantity) as number,
+    //   user_id: setCookies.get("user_id")?.value as string,
+    //   name: req.name,
+    //   imageUrl: req.imageUrl,
+    //   gender: req.gender,
+    //   price: req.price
+    // }
+    const cartItem:CartAPIRequest = {
+      user_id: req.user_id,
+      totalPrice: Number(req.totalPrice),
+      cartCount: Number(req.cartCount),
+      cartDetails: req.cartDetails
+    };
+    console.log("Adding Cart Item in DB - API");
+    console.log(cartItem);
     const data = await dbClient
       .insert(cartTable)
-      .values({
-        product_id: req.product_id,
-        quantity: Number(req.quantity) as number,
-        user_id: setCookies.get("user_id")?.value as string,
-        name: req.name,
-        imageUrl: req.imageUrl,
-        gender: req.gender,
-        price: Number(req.price) as number
-      });
+      .values(req);
     //
     return NextResponse.json({
       status: true,
