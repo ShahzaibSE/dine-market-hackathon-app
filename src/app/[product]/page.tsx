@@ -75,16 +75,9 @@ export default async function GiveProduct({
   try {
     const product_detailss =
       await getProductDetails(params.product);
-    // const { data } = await (
-    //   await fetch(
-    //     `http:localhost:3000/api/productDetails?q=${params.product}`
-    //   )
-    // ).json();
-    // const [currentImage, setcurrentImage] = useState();
-    // const product_details: Product = data[0];
     const product_details: Product = product_detailss[0];
-    console.log("Getting Product Details");
-    console.log(product_detailss);
+    // console.log("Getting Product Details");
+    // console.log(product_detailss);
     return (
       // <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       //   <div className="xl:container flex flex-wrap xl:flex-row gap-10">

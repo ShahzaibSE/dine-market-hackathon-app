@@ -34,10 +34,10 @@ export default function ProductPreview({
   // const imageUrl: IImage | undefined =
   const [bigPreviewImage, setBigPreviewImage] =
     useState<IImage>(product_details?.imageUrl);
-  console.log(
-    "Product Details - Product Preview"
-  );
-  console.log(productInfo);
+  // console.log(
+  //   "Product Details - Product Preview"
+  // );
+  // console.log(productInfo);
   return (
     <div>
       { 

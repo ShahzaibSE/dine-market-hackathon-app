@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { CartAPIRequest } from "@/type";
+import { CartAPIModel } from "@/type";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import { useAppSelector } from "@/store/store";
@@ -9,6 +9,8 @@ import CartItemCard from "./cartItemCard";
 import { totalPriceSelector } from "@/store/features/cartSlice";
 import { totalCartItemsSelector } from "@/store/features/cartSlice";
 import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
+import axios from "axios";
+import { BASE_PATH } from "../../sanity/lib/base";
 
 export default function CartComponent() {
   const [add_to_cart, response] =
@@ -30,8 +32,8 @@ export default function CartComponent() {
   console.log(totalPrice);
 
   useEffect(() => {
-    const cartRequestBody: CartAPIRequest = {
-      cartDetails: cartItems,
+    const cartRequestBody: CartAPIModel = {
+      // cartDetails: cartItems,
       totalPrice,
       cartCount: totalItems,
     };
@@ -47,6 +49,10 @@ export default function CartComponent() {
       .catch((err) => {
         console.log(err);
       });
+
+    // axios.post(`${BASE_PATH}cart`, cartRequestBody).then(res => {
+    //   console.log(res.data)
+    // }).catch(err => {console.log(err)})
   }, [
     cartItems,
     totalItems,

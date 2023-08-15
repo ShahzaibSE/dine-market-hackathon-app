@@ -1,4 +1,6 @@
+import { InferModel } from "drizzle-orm";
 import { Image as IImage } from "sanity";
+import { cartTable } from "./lib/drizzle";
 
 export interface Product {
   _id: string;
@@ -18,9 +20,11 @@ export interface CartItem {
   quantity: number;
 }
 
-export interface CartAPIRequest {
-  user_id?: string;
+export interface CartAPIModel {
   totalPrice: number;
   cartCount: number;
-  cartDetails: Array<CartItem>
+  cartDetails?: Array<CartItem>
 }
+
+export type CartAPIType = InferModel<typeof cartTable>
+export type CartAPIInsertType = InferModel<typeof cartTable, "insert">

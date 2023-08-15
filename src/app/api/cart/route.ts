@@ -8,10 +8,13 @@ import {
   cartTable,
 } from "@/lib/drizzle";
 
+import { InferModel } from "drizzle-orm";
+
 import {v4 as uuid} from "uuid";
 import { cookies } from "next/headers";
 //
-import { CartAPIRequest } from "@/type";
+import { CartAPIModel, CartAPIType, CartAPIInsertType} from "@/type";
+
 
 export const GET = async function () {
   try {
@@ -34,6 +37,7 @@ export const GET = async function () {
       resCode: 500,
       message: "Something Went Wrong",
       isError: true,
+      err
     });
   }
 };
@@ -50,27 +54,17 @@ export const POST = async function (
     if(!cookies().has("user_id")){
       setCookies.set("user_id", uid);
     }
-    //
-    // const cartItem = {
-    //   product_id: req.product_id,
-    //   quantity: Number(req.quantity) as number,
-    //   user_id: setCookies.get("user_id")?.value as string,
-    //   name: req.name,
-    //   imageUrl: req.imageUrl,
-    //   gender: req.gender,
-    //   price: req.price
-    // }
-    const cartItem:CartAPIRequest = {
-      user_id: req.user_id,
-      totalPrice: Number(req.totalPrice),
-      cartCount: Number(req.cartCount),
-      cartDetails: req.cartDetails
+    const cartItem:CartAPIInsertType = {
+      userid: uid,
+      totalprice: Number(req.totalprice),
+      cartcount: Number(req.cartcount),
+      // cartDetails: req.cartDetails
     };
     console.log("Adding Cart Item in DB - API");
-    console.log(cartItem);
+    // console.log(cartItem);
     const data = await dbClient
       .insert(cartTable)
-      .values(req);
+      .values(cartItem).returning();
     //
     return NextResponse.json({
       status: true,
@@ -85,6 +79,7 @@ export const POST = async function (
       resCode: 500,
       message: "Internal Error",
       isError: true,
+      err
     });
   }
 };
