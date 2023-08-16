@@ -34,12 +34,11 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   const req = await request.json();
   const newTask: NewTask = {
-    taskname: req.taskName,
-    isdone: req.isDone,
+    taskname: req.taskname,
+    isdone: req.isdone,
     // createdat: new Date()
   };
 
-  console.log(db);
   const insertedUsers = await db
     .insert(tasks)
     .values(newTask)

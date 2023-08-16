@@ -49,9 +49,9 @@ export const cartTable = pgTable("cart", {
   userid: varchar("userid", {
     length: 255,
   }).notNull(),
-  // cartDetails: json("Cartdetails")
-  //   .array()
-  //   .notNull(),
+  cartdetails: jsonb("cartdetails")
+    .array()
+    .notNull(),
   totalprice: integer("totalprice").notNull(),
   cartcount: integer("cartcount").notNull(),
 });
