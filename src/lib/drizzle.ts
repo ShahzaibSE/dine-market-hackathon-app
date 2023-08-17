@@ -46,12 +46,15 @@ import { drizzle } from "drizzle-orm/vercel-postgres";
 // --- Version 3 --- //
 export const cartTable = pgTable("cart", {
   id: serial("id").primaryKey(),
+  productid: varchar("productid", {length: 255}).notNull(),
   userid: varchar("userid", {
     length: 255,
   }).notNull(),
-  cartdetails: jsonb("cartdetails")
-    .array()
-    .notNull(),
+  name: varchar("name",{length: 255}).notNull(),
+  imageurl: jsonb("imageurl").notNull(),
+  quantity: integer("quantity").notNull(),
+  price: integer("price").notNull(),
+  category: text("category").notNull(),
   totalprice: integer("totalprice").notNull(),
   cartcount: integer("cartcount").notNull(),
 });

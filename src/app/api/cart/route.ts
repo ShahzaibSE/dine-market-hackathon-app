@@ -45,51 +45,6 @@ export const GET = async function () {
   }
 };
 
-// export const POST = async function (
-//   request: NextRequest
-// ) {
-//   try {
-//     const req = await request.json();
-//     const userid = uuid();
-//     const setCookies = cookies();
-//     //
-//     if (!cookies().has("user_id")) {
-//       setCookies.set("user_id", userid);
-//       console.log("User ID");
-//       console.log(userid);
-//     }
-//     console.log(userid);
-//     const cartItem: any = {
-//       userid,
-//       totalprice: Number(req.totalprice),
-//       cartcount: Number(req.cartcount),
-//       // cartDetails: req.cartDetails
-//     };
-//     console.log("Adding Cart Item in DB - API");
-//     // console.log(cartItem);
-//     // const data = await dbClient
-//     //   .insert(cartTable)
-//     //   .values(cartItem)
-//     //   .returning();
-//     //
-//     return NextResponse.json({
-//       status: true,
-//       resCode: 200,
-//       message: "Product added to cart",
-//       cartItem,
-//       isError: false,
-//     });
-//   } catch (err) {
-//     return NextResponse.json({
-//       status: false,
-//       resCode: 500,
-//       message: "Internal Error",
-//       isError: true,
-//       err,
-//     });
-//   }
-// };
-
 export async function POST(
   request: NextRequest,
   response: NextResponse
