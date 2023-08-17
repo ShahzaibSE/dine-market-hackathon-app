@@ -23,7 +23,12 @@ export interface CartItem {
 export interface CartAPIModel {
   totalPrice: number;
   cartCount: number;
-  cartDetails?: Array<CartItem>
+  productid: string;
+  name: string;
+  category: string;
+  imageUrl: any,
+  price: number;
+  quantity: number;
 }
 
 export type CartAPIType = InferModel<typeof cartTable>

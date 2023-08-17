@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Product, CartItem } from "@/type";
+import { Product, CartItem, CartAPIModel } from "@/type";
 import { capitaliseString } from "@/utils";
 import {
   Minus,
@@ -37,15 +37,22 @@ export default function AddToCart(props: Props) {
   //
   const addItemsToCart = function(cart_item: Product) {
     try{
-      const cartItemReqObj = {
-        _id : cart_item._id,
-        name: cart_item.name as string,
-        category: cart_item.category as string,
-        gender: cart_item.gender as string,
-        price: cart_item.price,
-        imageUrl: cart_item.imageUrl,
-        previews: cart_item.previews
-      }
+      // const cartItemReqObj = {
+      //   _id : cart_item._id,
+      //   name: cart_item.name as string,
+      //   category: cart_item.category as string,
+      //   gender: cart_item.gender as string,
+      //   price: cart_item.price,
+      //   imageUrl: cart_item.imageUrl,
+      // }
+      // const cartItemReqObj:CartAPIModel = {
+      //   productid : cart_item._id,
+      //   name: cart_item.name as string,
+      //   category: cart_item.category as string,
+      //   price: Number(cart_item.price),
+      //   imageUrl: cart_item.imageUrl,
+      //   // quantity: 
+      // }
       console.log("Item that is being added to db");
       
       // add_to_cart(cartItemReqObj).then(res => {
