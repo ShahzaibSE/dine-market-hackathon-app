@@ -44,7 +44,7 @@ export function ProductDetail(props: {
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20">
       <div className="xl:container flex flex-wrap xl:flex-row gap-10">
         <ProductPreview
-          product={currentProduct}
+          product={cartProduct}
         />
         <div className="flex flex-col gap-6">
           <div className="flex flex-col">
@@ -103,14 +103,14 @@ export function ProductDetail(props: {
                 increaseQty={() =>
                   dispatch(
                     increaseQuantity(
-                      currentProduct
+                     cartProduct
                     )
                   )
                 }
                 decreaseQty={() =>
                   dispatch(
                     decreaseQuantity(
-                      currentProduct
+                      cartProduct
                     )
                   )
                 }
@@ -121,7 +121,7 @@ export function ProductDetail(props: {
           <div className="flex gap-4">
             <div className="flex">
               <AddToCart
-                product={currentProduct}
+                cart_item={cartProduct}
               />
             </div>
             <div className="flex justify-center items-center">

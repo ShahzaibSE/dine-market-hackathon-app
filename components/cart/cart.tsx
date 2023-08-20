@@ -31,34 +31,31 @@ export default function CartComponent() {
   console.log("Total Price - Cart Component");
   console.log(totalPrice);
 
-  useEffect(() => {
-    const cartRequestBody: CartAPIModel = {
-      // cartDetails: cartItems,
-      totalPrice,
-      cartCount: totalItems,
-    };
-    console.log(
-      "Cart Items added/updated - Cart Client Component"
-    );
-    console.log(cartRequestBody);
-    add_to_cart(cartRequestBody)
-      .then((res) => {
-        console.log("Adding item to database");
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // useEffect(() => {
+  //   const cartRequestBody: CartAPIModel = {
+  //     // cartDetails: cartItems,
+  //     totalPrice,
+  //     cartCount: totalItems,
+  //   };
+  //   console.log(
+  //     "Cart Items added/updated - Cart Client Component"
+  //   );
+  //   console.log(cartRequestBody);
+  //   add_to_cart(cartRequestBody)
+  //     .then((res) => {
+  //       console.log("Adding item to database");
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
 
-    // axios.post(`${BASE_PATH}cart`, cartRequestBody).then(res => {
-    //   console.log(res.data)
-    // }).catch(err => {console.log(err)})
-  }, [
-    cartItems,
-    totalItems,
-    totalPrice,
-    add_to_cart,
-  ]);
+  // }, [
+  //   cartItems,
+  //   totalItems,
+  //   totalPrice,
+  //   add_to_cart,
+  // ]);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">

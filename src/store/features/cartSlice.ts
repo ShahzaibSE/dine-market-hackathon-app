@@ -84,28 +84,28 @@ export const cartSlice = createSlice({
     //     item.quantity--;
     //   }
     // },
-    increaseQuantity: (state, action: PayloadAction<Product>) => {
+    increaseQuantity: (state, action: PayloadAction<CartItem>) => {
       const cartItem = state.cartItems.find(
-        (el) => el.product._id === action.payload._id
+        (el) => el.product._id === action.payload.product._id
       );
       if (cartItem) cartItem.quantity++;
       else {
         state.cartItems.push({
-          product: action.payload,
+          product: action.payload.product,
           quantity: 1,
         });
       }
     },
 
-    decreaseQuantity: (state, action: PayloadAction<Product>) => {
+    decreaseQuantity: (state, action: PayloadAction<CartItem>) => {
       const cartItem = state.cartItems.find(
-        (el) => el.product._id === action.payload._id
+        (el) => el.product._id === action.payload.product._id
       );
       if (cartItem) {
         cartItem.quantity--;
         if (cartItem.quantity === 0) {
           state.cartItems = state.cartItems.filter(
-            (el) => el.product._id !== action.payload._id
+            (el) => el.product._id !== action.payload.product._id
           );
         }
       }

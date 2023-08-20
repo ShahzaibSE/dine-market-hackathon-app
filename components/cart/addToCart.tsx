@@ -20,7 +20,7 @@ import {
 import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
 
 interface Props {
-  product: Product;
+  cart_item: CartItem
 }
 
 export default function AddToCart(props: Props) {
@@ -29,13 +29,13 @@ export default function AddToCart(props: Props) {
   const quantity = useAppSelector((state) =>
     productQtyInCartSelector(
       state,
-      props.product?._id == undefined
+      props.cart_item.product?._id == undefined
         ? " "
-        : props.product._id
+        : props.cart_item.product._id
     )
   );
   //
-  const addItemsToCart = function(cart_item: Product) {
+  const addItemsToCart = function(cart_item: CartItem) {
     try{
       // const cartItemReqObj = {
       //   _id : cart_item._id,
@@ -68,7 +68,7 @@ export default function AddToCart(props: Props) {
   return (
     <Button
       onClick={() => {
-        addItemsToCart(props.product)
+        addItemsToCart(props.cart_item)
       }}
     >
       <ShoppingCart className="mr-2 h-4 w-4" />{" "}

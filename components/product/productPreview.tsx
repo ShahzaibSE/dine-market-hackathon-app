@@ -4,9 +4,10 @@ import Image from "next/image";
 import { Product } from "@/type";
 import { urlForImage } from "../../sanity/lib/image";
 import { Image as IImage } from "sanity";
+import { CartItem } from "@/type";
 
 interface Props {
-  product: Product;
+  product: CartItem;
 }
 
 export default function ProductPreview({
@@ -22,18 +23,18 @@ export default function ProductPreview({
   const product_details = product;
   const productInfo = {
     previews:
-      product_details?.previews == undefined
+      product_details?.product?.previews == undefined
         ? [defaultImage]
-        : product_details.previews,
+        : product_details.product.previews,
     imageUrl:
-      product_details?.imageUrl == undefined
+      product_details?.product.imageUrl == undefined
         ? defaultImage
-        : product_details.imageUrl,
+        : product_details.product.imageUrl,
   };
   // let previews = product.previews.length == null ? [] : product.previews
   // const imageUrl: IImage | undefined =
   const [bigPreviewImage, setBigPreviewImage] =
-    useState<IImage>(product_details?.imageUrl);
+    useState<IImage>(product_details?.product.imageUrl);
   // console.log(
   //   "Product Details - Product Preview"
   // );
@@ -70,7 +71,7 @@ export default function ProductPreview({
                             )
                               .width(50)
                               .url()}
-                            alt={`${product_details?.name}`}
+                            alt={`${product_details?.product.name}`}
                             width={50}
                             height={50}
                           />
@@ -87,7 +88,7 @@ export default function ProductPreview({
             <div className="flex justify-center items-center w-full h-full relative">
               <Image
                 className="object-cover"
-                alt={`${product_details?.name}`}
+                alt={`${product_details?.product.name}`}
                 src={urlForImage(bigPreviewImage == undefined ? defaultImage : bigPreviewImage)
                   .width(600)
                   .url()}

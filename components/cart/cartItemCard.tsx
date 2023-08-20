@@ -90,14 +90,14 @@ export default function CartItemCard({
                 increaseQty={() =>
                   dispatch(
                     increaseQuantity(
-                      cartItem.product
+                      cartItem
                     )
                   )
                 }
                 decreaseQty={() =>
                   dispatch(
                     decreaseQuantity(
-                      cartItem.product
+                      cartItem
                     )
                   )
                 }
