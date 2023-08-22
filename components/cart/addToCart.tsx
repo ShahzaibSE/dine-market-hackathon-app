@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
-import { Product, CartItem, CartAPIModel } from "@/type";
+import {
+  Product,
+  CartItem,
+  CartAPIModel,
+} from "@/type";
 import { capitaliseString } from "@/utils";
 import {
   Minus,
@@ -12,6 +16,8 @@ import {
   productQtyInCartSelector,
   addToCart,
   increaseQuantity,
+  totalPriceSelector,
+  totalCartItemsSelector,
 } from "@/store/features/cartSlice";
 import {
   useAppSelector,
@@ -20,12 +26,20 @@ import {
 import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
 
 interface Props {
-  cart_item: CartItem
+  cart_item: CartItem;
 }
 
 export default function AddToCart(props: Props) {
   const dispatch = useAppDispatch();
-  const [add_to_cart, response] = useAddToCartMutationMutation();
+  const [add_to_cart, response] =
+    useAddToCartMutationMutation();
+  const cartItems = useAppSelector((state)=>state.cart.cartItems);
+  const totalPrice = useAppSelector(
+    totalPriceSelector
+  );
+  const totalItems = useAppSelector(
+    totalCartItemsSelector
+  );
   const quantity = useAppSelector((state) =>
     productQtyInCartSelector(
       state,
@@ -35,40 +49,37 @@ export default function AddToCart(props: Props) {
     )
   );
   //
-  const addItemsToCart = function(cart_item: CartItem) {
-    try{
-      // const cartItemReqObj = {
-      //   _id : cart_item._id,
-      //   name: cart_item.name as string,
-      //   category: cart_item.category as string,
-      //   gender: cart_item.gender as string,
-      //   price: cart_item.price,
-      //   imageUrl: cart_item.imageUrl,
-      // }
-      // const cartItemReqObj:CartAPIModel = {
-      //   productid : cart_item._id,
-      //   name: cart_item.name as string,
-      //   category: cart_item.category as string,
-      //   price: Number(cart_item.price),
-      //   imageUrl: cart_item.imageUrl,
-      //   // quantity: 
-      // }
-      console.log("Item that is being added to db");
-      
-      // add_to_cart(cartItemReqObj).then(res => {
-      //   console.log("Adding item to database");
-      //   console.log(res);
-      // }).catch((err)=>{console.log(err)});
+  const addItemsToCart = function (
+    cart_item: CartItem
+  ) {
+    try {
+      const cartItem: CartAPIModel = {
+        productid: props.cart_item?.product?._id as string,
+        name: props.cart_item?.product?.name as string,
+        category: props.cart_item?.product?.category as string,
+        price: Number(props.cart_item?.product?.price) as number,
+        imageurl: props.cart_item?.product?.imageUrl,
+        quantity: props.cart_item?.quantity,
+        totalprice: 0,
+        cartcount: 0
+      }
+      console.log(
+        "Item that is being added to db"
+      );
+      console.log(cartItem);
+      add_to_cart(cartItem).then(res => {
+        console.log("Adding item to database");
+        console.log(res);
+      }).catch((err)=>{console.log(err)});
       dispatch(increaseQuantity(cart_item));
-    }
-    catch(err){
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
   return (
     <Button
       onClick={() => {
-        addItemsToCart(props.cart_item)
+        addItemsToCart(props.cart_item);
       }}
     >
       <ShoppingCart className="mr-2 h-4 w-4" />{" "}

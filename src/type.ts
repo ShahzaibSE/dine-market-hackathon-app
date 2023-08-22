@@ -21,12 +21,12 @@ export interface CartItem {
 }
 
 export interface CartAPIModel {
-  totalPrice: number;
-  cartCount: number;
+  totalprice: number;
+  cartcount: number;
   productid: string;
   name: string;
   category: string;
-  imageUrl: any,
+  imageurl: any,
   price: number;
   quantity: number;
 }
