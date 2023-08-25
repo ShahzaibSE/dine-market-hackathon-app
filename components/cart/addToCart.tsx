@@ -25,11 +25,13 @@ import {
 } from "@/store/store";
 import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
 import { PopUpToast, success } from "@/lib/toast";
-import { toast } from "react-hot-toast";
+import toast, {Toaster} from "react-hot-toast";
 
 interface Props {
   cart_item: CartItem;
 }
+
+const notify = () => toast.success('Here is your toast.');
 
 export default function AddToCart(props: Props) {
   const dispatch = useAppDispatch();
@@ -94,7 +96,11 @@ export default function AddToCart(props: Props) {
           );
         });
       dispatch(increaseQuantity(cart_item));
-      success("Product added to the cart");
+      PopUpToast(
+        "Item has been added to cart",
+        "success"
+      );
+      // notify();
     } catch (err) {
       console.log(err);
     }

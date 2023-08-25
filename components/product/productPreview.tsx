@@ -5,6 +5,7 @@ import { Product } from "@/type";
 import { urlForImage } from "../../sanity/lib/image";
 import { Image as IImage } from "sanity";
 import { CartItem } from "@/type";
+import { Toaster } from "react-hot-toast";
 
 interface Props {
   product: CartItem;
@@ -47,6 +48,7 @@ export default function ProductPreview({
           <div className="flex">
             <div className="flex flex-col justify-start items-start gap-4">
               <div className="flex flex-col justify-between items-center gap-4">
+                <Toaster />
                 <>
                   {productInfo.previews &&
                     productInfo.previews.map(

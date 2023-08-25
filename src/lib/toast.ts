@@ -5,9 +5,9 @@ export const success = (message: string) => toast(message);
 
 export function PopUpToast(message: string, type: string) {
     if(type === "error"){
-        return toast(toast.error(message));
+        toast.error(message);
     }else {
-        return toast(toast.success(message));
+        toast.success(message);
     }
 }
 
