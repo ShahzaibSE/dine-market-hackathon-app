@@ -4,17 +4,17 @@ import Image from "next/image";
 import { CartAPIModel } from "@/type";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
-import { useAppSelector } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
 import CartItemCard from "./cartItemCard";
 import { totalPriceSelector } from "@/store/features/cartSlice";
 import { totalCartItemsSelector } from "@/store/features/cartSlice";
-import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
-import axios from "axios";
-import { BASE_PATH } from "../../sanity/lib/base";
+import { useGetCartItemsQuery } from "@/store/services/cartAPI";
+import { updateCartList, addToCart } from "@/store/features/cartSlice";
+import { CartItem } from "@/type";
 
 export default function CartComponent() {
-  const [add_to_cart, response] =
-    useAddToCartMutationMutation();
+  const {data} = useGetCartItemsQuery(null);
+  const dispatch = useAppDispatch();
   const cartItems = useAppSelector(
     (state) => state.cart.cartItems
   );
@@ -30,32 +30,11 @@ export default function CartComponent() {
   console.log(totalItems);
   console.log("Total Price - Cart Component");
   console.log(totalPrice);
+  
+  useEffect(()=>{
+    // dispatch(updateCartList(data as CartItem[]))
+  }, [data, dispatch])
 
-  // useEffect(() => {
-  //   const cartRequestBody: CartAPIModel = {
-  //     // cartDetails: cartItems,
-  //     totalPrice,
-  //     cartCount: totalItems,
-  //   };
-  //   console.log(
-  //     "Cart Items added/updated - Cart Client Component"
-  //   );
-  //   console.log(cartRequestBody);
-  //   add_to_cart(cartRequestBody)
-  //     .then((res) => {
-  //       console.log("Adding item to database");
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-
-  // }, [
-  //   cartItems,
-  //   totalItems,
-  //   totalPrice,
-  //   add_to_cart,
-  // ]);
   return (
     <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">

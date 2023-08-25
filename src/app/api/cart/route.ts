@@ -51,7 +51,7 @@ export async function POST(
 ) {
   try {
     const req = await request.json();
-    console.log("Cart - Post Request");
+    // console.log("Cart - Post Request");
     // console.log(req);
     const userid = uuid();
     let newItem: CartAPIInsertType = {

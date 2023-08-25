@@ -3,8 +3,13 @@ import {
   createSelector,
 } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { Product, CartItem } from "@/type";
+import {
+  Product,
+  CartItem,
+  CartAPIModel,
+} from "@/type";
 import { RootState } from "../store";
+import { isEqual } from "lodash";
 
 export interface CartState {
   cartItems: CartItem[];
@@ -13,6 +18,19 @@ export interface CartState {
 export const initialState: CartState = {
   cartItems: [],
 };
+
+function uniqForObject<T>(array: T[]): T[] {
+  const result: T[] = [];
+  for (const item of array) {
+    const found = result.some((value) =>
+      isEqual(value, item)
+    );
+    if (!found) {
+      result.push(item);
+    }
+  }
+  return result;
+}
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -33,12 +51,71 @@ export const cartSlice = createSlice({
     //     state.cartItems.push(itemInCart);
     //   }
     // },
+    updateCartList: (
+      state: any,
+      action: PayloadAction<CartItem[]>
+    ) => {
+      const updatedCartObj =
+        action.payload == undefined
+          ? []
+          : action.payload;
+      // console.log(updatedCartObj);
+      if (Object.hasOwn(updatedCartObj, "data")) {
+        const { data } = updatedCartObj as any;
+        let tempCartItemsList =
+          data.length > 0
+            ? data.map((item: CartAPIModel) => {
+                return {
+                  product: {
+                    _id: item.productid,
+                    name: item.name,
+                    category: item.category,
+                    imageUrl: item.imageurl,
+                    price: item.price,
+                  },
+                  quantity: item.quantity,
+                };
+              })
+            : [];
+        console.log(
+          "Cart List from database - Cart Slice"
+        );
+        for (
+          let i = 0;
+          i < tempCartItemsList.length;
+          i++
+        ) {
+          for (
+            let j = 0;
+            j < tempCartItemsList[i].length;
+            j++
+          ) {
+            if (
+              tempCartItemsList[i].product._id ==
+              tempCartItemsList[j].product._id
+            ) {
+              tempCartItemsList[i].qty += 1;
+            }
+          }
+        }
+        console.log(tempCartItemsList);
+        state.cartItems = uniqForObject(
+          tempCartItemsList
+        );
+        state.cartItems[0].quantity = 3;
+        // const cartItem = state.cartItems.find(
+        //   (el: CartItem) =>
+        //     el.product._id === action.payload._id
+        // );
+        // if (cartItem) cartItem.qty++;
+      }
+    },
     addToCart: (
       state: any,
       action: PayloadAction<Product>
     ) => {
       const cartItem = state.cartItems.find(
-        (el:CartItem) =>
+        (el: CartItem) =>
           el.product._id === action.payload._id
       );
       if (cartItem) cartItem.qty++;
@@ -56,7 +133,8 @@ export const cartSlice = createSlice({
       const itemAfterDelete =
         state.cartItems.filter(
           (item: CartItem) =>
-            item.product._id !== action.payload._id
+            item.product._id !==
+            action.payload._id
         );
       state.cartItems = itemAfterDelete;
     },
@@ -84,9 +162,14 @@ export const cartSlice = createSlice({
     //     item.quantity--;
     //   }
     // },
-    increaseQuantity: (state, action: PayloadAction<CartItem>) => {
+    increaseQuantity: (
+      state,
+      action: PayloadAction<CartItem>
+    ) => {
       const cartItem = state.cartItems.find(
-        (el) => el.product._id === action.payload.product._id
+        (el) =>
+          el.product._id ===
+          action.payload.product._id
       );
       if (cartItem) cartItem.quantity++;
       else {
@@ -97,16 +180,24 @@ export const cartSlice = createSlice({
       }
     },
 
-    decreaseQuantity: (state, action: PayloadAction<CartItem>) => {
+    decreaseQuantity: (
+      state,
+      action: PayloadAction<CartItem>
+    ) => {
       const cartItem = state.cartItems.find(
-        (el) => el.product._id === action.payload.product._id
+        (el) =>
+          el.product._id ===
+          action.payload.product._id
       );
       if (cartItem) {
         cartItem.quantity--;
         if (cartItem.quantity === 0) {
-          state.cartItems = state.cartItems.filter(
-            (el) => el.product._id !== action.payload.product._id
-          );
+          state.cartItems =
+            state.cartItems.filter(
+              (el) =>
+                el.product._id !==
+                action.payload.product._id
+            );
         }
       }
     },
@@ -156,4 +247,5 @@ export const {
   removeItem,
   increaseQuantity,
   decreaseQuantity,
+  updateCartList,
 } = cartSlice.actions;

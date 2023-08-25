@@ -24,6 +24,8 @@ import {
   useAppDispatch,
 } from "@/store/store";
 import { useAddToCartMutationMutation } from "@/store/services/cartAPI";
+import { PopUpToast, success } from "@/lib/toast";
+import { toast } from "react-hot-toast";
 
 interface Props {
   cart_item: CartItem;
@@ -33,7 +35,9 @@ export default function AddToCart(props: Props) {
   const dispatch = useAppDispatch();
   const [add_to_cart, response] =
     useAddToCartMutationMutation();
-  const cartItems = useAppSelector((state)=>state.cart.cartItems);
+  const cartItems = useAppSelector(
+    (state) => state.cart.cartItems
+  );
   const totalPrice = useAppSelector(
     totalPriceSelector
   );
@@ -54,24 +58,43 @@ export default function AddToCart(props: Props) {
   ) {
     try {
       const cartItem: CartAPIModel = {
-        productid: props.cart_item?.product?._id as string,
-        name: props.cart_item?.product?.name as string,
-        category: props.cart_item?.product?.category as string,
-        price: Number(props.cart_item?.product?.price) as number,
-        imageurl: props.cart_item?.product?.imageUrl,
-        quantity: props.cart_item?.quantity,
+        productid: props.cart_item?.product
+          ?._id as string,
+        name: props.cart_item?.product
+          ?.name as string,
+        category: props.cart_item?.product
+          ?.category as string,
+        price: Number(
+          props.cart_item?.product?.price
+        ) as number,
+        imageurl:
+          props.cart_item?.product?.imageUrl,
+        quantity: props.cart_item?.quantity === 0 ? 1 : props.cart_item?.quantity,
         totalprice: 0,
-        cartcount: 0
-      }
-      console.log(
-        "Item that is being added to db"
-      );
-      console.log(cartItem);
-      add_to_cart(cartItem).then(res => {
-        console.log("Adding item to database");
-        console.log(res);
-      }).catch((err)=>{console.log(err)});
+        cartcount: 0,
+      };
+      // console.log(
+      //   "Item that is being added to db"
+      // );
+      // console.log(cartItem);
+      add_to_cart(cartItem)
+        .then((res) => {
+          console.log("Added item to database - Add to Cart Component");
+          console.log(res);
+          // PopUpToast(
+          //   "Item has been added to cart",
+          //   "success"
+          // );
+        })
+        .catch((err) => {
+          console.log(err);
+          PopUpToast(
+            "Couldn't add item to the cart",
+            "error"
+          );
+        });
       dispatch(increaseQuantity(cart_item));
+      success("Product added to the cart");
     } catch (err) {
       console.log(err);
     }

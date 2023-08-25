@@ -27,14 +27,14 @@ export default function ProductPreview({
         ? [defaultImage]
         : product_details.product.previews,
     imageUrl:
-      product_details?.product.imageUrl == undefined
+      product_details?.product?.imageUrl == undefined
         ? defaultImage
-        : product_details.product.imageUrl,
+        : product_details.product?.imageUrl,
   };
   // let previews = product.previews.length == null ? [] : product.previews
   // const imageUrl: IImage | undefined =
   const [bigPreviewImage, setBigPreviewImage] =
-    useState<IImage>(product_details?.product.imageUrl);
+    useState<IImage>(product_details?.product?.imageUrl as IImage);
   // console.log(
   //   "Product Details - Product Preview"
   // );
@@ -71,7 +71,7 @@ export default function ProductPreview({
                             )
                               .width(50)
                               .url()}
-                            alt={`${product_details?.product.name}`}
+                            alt={`${product_details?.product?.name as string}`}
                             width={50}
                             height={50}
                           />
@@ -88,7 +88,7 @@ export default function ProductPreview({
             <div className="flex justify-center items-center w-full h-full relative">
               <Image
                 className="object-cover"
-                alt={`${product_details?.product.name}`}
+                alt={`${product_details?.product?.name as string}`}
                 src={urlForImage(bigPreviewImage == undefined ? defaultImage : bigPreviewImage)
                   .width(600)
                   .url()}

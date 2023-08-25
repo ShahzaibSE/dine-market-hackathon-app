@@ -26,7 +26,6 @@ export default function Header() {
   const totalItems = useAppSelector(
     totalCartItemsSelector
   );
-  let cart_items: number = 0;
   const [isNavigate, setNavigate] =
     useState(false);
   return (
