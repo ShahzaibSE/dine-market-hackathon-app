@@ -81,3 +81,17 @@ export async function POST(
     });
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+
+  }catch(err){
+    return NextResponse.json({
+      status: false,
+      resCode: 500,
+      message: "Internal Error",
+      isError: true,
+      err,
+    });
+  }
+}

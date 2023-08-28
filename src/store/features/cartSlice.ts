@@ -102,7 +102,7 @@ export const cartSlice = createSlice({
         state.cartItems = uniqForObject(
           tempCartItemsList
         );
-        state.cartItems[0].quantity = 3;
+        // state.cartItems[0].quantity = 3;
         // const cartItem = state.cartItems.find(
         //   (el: CartItem) =>
         //     el.product._id === action.payload._id
