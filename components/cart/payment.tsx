@@ -2,6 +2,7 @@
 
 import {
   CardElement,
+  PaymentElement,
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
@@ -9,7 +10,13 @@ import axios from "axios";
 import React from "react";
 import { Button } from "../ui/button";
 import { Input } from "./../../src/components/ui/input";
-
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -43,20 +50,55 @@ export default function PaymentForm() {
   };
 
   return (
-    <div className="flex flex-1 justify-center items-center">
-      <form className="flex flex-col justify-center items-center gap-4" onSubmit={onSubmit}>
-        <div className="flex justify-center items-center">
-          <Input className="max-w-fit xl:w-80" placeholder="Full Name" name="fullname" aria-label="fullname"/>
-        </div>
-        <div className="flex justify-start items-center">
-          <CardElement className="max-w-fit xl:w-80" />
-        </div>
-        <div className="flex justify-center items-center">
-          <Button>
-            <span>Submit</span>
-          </Button>
-        </div>
-      </form>
+    <div className="flex justify-center items-center w-full">
+      <Card>
+        <form
+          className="flex flex-col justify-center items-center gap-4 max-w-screen-xl"
+          onSubmit={onSubmit}
+        >
+          <CardHeader>
+            <CardTitle>Your Payment Details</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col justify-center items-center w-full gap-4 xl:max-w-screen-xl">
+              <div className="flex justify-center items-center">
+                <Input
+                  className="w-60 xl:w-80"
+                  placeholder="Full Name"
+                  name="fullname"
+                  aria-label="fullname"
+                />
+              </div>
+              <div className="flex justify-center items-center">
+                <Input
+                  className="w-60 xl:w-80"
+                  placeholder="Email"
+                  name="email"
+                  aria-label="email"
+                />
+              </div>
+              <div className="flex justify-center items-center">
+                <Input
+                  className="w-60 xl:w-80"
+                  placeholder="Address"
+                  name="address"
+                  aria-label="address"
+                />
+              </div>
+              <div className="flex justify-center items-center">
+                <CardElement  className="w-60 xl:w-80" />
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="flex justify-center items-center">
+              <Button className="w-full">
+                <span>Submit</span>
+              </Button>
+            </div>
+          </CardFooter>
+        </form>
+      </Card>
     </div>
   );
 }

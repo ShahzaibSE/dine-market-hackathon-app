@@ -42,7 +42,7 @@ export default function CartComponent() {
   }, [data, dispatch]);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center p-12 xl:p-24">
       <div className="flex flex-col justify-start items-start gap-6 xl:container">
         <div className="flex justify-start items-center my-4">
           <h1 className="font-bold text-2xl xl:text-3xl leading-6 tracking-wide">

@@ -10,7 +10,7 @@ const stripePromise = loadStripe(
 
 export default function CheckOutPage() {
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <Elements stripe={stripePromise}>
         <Suspense
           fallback={

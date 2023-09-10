@@ -43,7 +43,7 @@ export default function RootLayout({
             <header>
               <Header />
             </header>
-            <main className="flex flex-wrap p-12 md:p-24">
+            <main>
               {children}
             </main>
             <footer>

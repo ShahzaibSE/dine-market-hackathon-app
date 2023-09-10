@@ -9,7 +9,7 @@ export default function FemaleComponent(
   // console.log(female_products);
   //
   return (
-    <div className="flex flex-wrap justify-between items-center gap-4">
+    <div className="flex flex-wrap justify-center items-center gap-6 p-12 xl:p-24">
       {/* <div>
         <motion.div whileHover={{ scale: 1.1 }}>
           <Card>
