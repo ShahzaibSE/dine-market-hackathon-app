@@ -7,7 +7,7 @@ export default function AllProductComponent(
   const { all_products } = props;
   //
   return (
-    <div className="flex flex-wrap justify-between items-center gap-4">
+    <div className="flex flex-wrap justify-center items-center gap-6 p-12 xl:p-24">
       <>
         {all_products.map(
           (product: any, index: number) => (

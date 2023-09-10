@@ -24,7 +24,7 @@ import "swiper/css";
 
 export default function HomeComponent() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col p-12 xl:p-24">
       <div className="flex flex-col justify-start item-start xl:flex-row xl:justify-start xl:items-start xl:space-x-20">
         <div className="flex flex-col justify-around items-start w-full xl:w-2/4">
           <div className="flex flex-col justify-start items-start">

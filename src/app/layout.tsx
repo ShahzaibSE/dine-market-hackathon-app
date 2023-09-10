@@ -18,13 +18,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta
+          name="description"
+          content="Free Web tutorials"
+        />
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript, Ecommerce"
+        />
+        <meta
+          name="author"
+          content="Shahzaib Noor"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+      </head>
       <body className={inter.className}>
         <ReduxProvider>
           <div className="">
             <header>
               <Header />
             </header>
-            <main className="flex flex-wrap p-12 md:p-24">
+            <main>
               {children}
             </main>
             <footer>
