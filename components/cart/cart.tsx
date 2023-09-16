@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { CartAPIModel } from "@/type";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
@@ -97,12 +98,14 @@ export default function CartComponent() {
                 </div>
               </div>
               <div className="flex w-full">
-                <Button>
-                  <ShoppingCart className="mr-2 h-4 w-4" />{" "}
-                  <span className="font-bold">
-                    Proceed to Checkout
-                  </span>
-                </Button>
+                <Link href="/payment">
+                  <Button>
+                    <ShoppingCart className="mr-2 h-4 w-4" />{" "}
+                    <span className="font-bold">
+                      Proceed to Checkout
+                    </span>
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

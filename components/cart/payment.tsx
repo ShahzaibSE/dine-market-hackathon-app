@@ -50,7 +50,7 @@ export default function PaymentForm() {
   };
 
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex justify-center items-center w-full my-28">
       <Card>
         <form
           className="flex flex-col justify-center items-center gap-4 max-w-screen-xl"
