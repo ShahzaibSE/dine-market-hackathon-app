@@ -42,7 +42,7 @@ export function ProductDetail(props: {
   // console.log(currentProduct);
   return (
     <div className="max-w-screen-xl flex flex-col justify-start items-center gap-20 p-12 xl:p-24">
-      <div className="xl:container flex flex-wrap xl:flex-row gap-10">
+      <div className="xl:container flex flex-wrap xl:flex-row gap-10 xl:gap-4">
         <ProductPreview
           product={cartProduct}
         />
