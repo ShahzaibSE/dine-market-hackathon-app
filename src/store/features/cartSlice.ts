@@ -201,6 +201,9 @@ export const cartSlice = createSlice({
         }
       }
     },
+    clearCart: (state, action: PayloadAction<CartItem[]>) => {
+      state.cartItems = initialState.cartItems;
+    }
   },
 });
 
@@ -248,4 +251,5 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   updateCartList,
+  clearCart
 } = cartSlice.actions;

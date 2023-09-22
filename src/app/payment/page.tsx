@@ -9,6 +9,7 @@ const stripePromise = loadStripe(
 );
 
 export default function CheckOutPage() {
+
   return (
     <div className="flex justify-center items-center">
       <Elements stripe={stripePromise}>

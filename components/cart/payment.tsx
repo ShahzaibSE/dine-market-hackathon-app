@@ -8,7 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import Stripe from "stripe";
 import axios from "axios";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "./../../src/components/ui/input";
 import {
@@ -20,9 +20,14 @@ import {
 } from "@/components/ui/card";
 import { PopUpToast } from "@/lib/toast";
 import { useAppSelector } from "@/store/store";
-import { totalPriceSelector } from "@/store/features/cartSlice";
+import {
+  clearCart,
+  totalPriceSelector,
+} from "@/store/features/cartSlice";
 import toast from "react-hot-toast";
 import { redirect } from "next/dist/server/api-utils";
+import { useAppDispatch } from "@/store/store";
+import { useRouter } from "next/router";
 
 // const stripe = Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -33,15 +38,15 @@ import { redirect } from "next/dist/server/api-utils";
 // paymentElement.mount('#payment-element');
 
 export default function PaymentForm() {
+  const dispatch = useAppDispatch();
   const totalPayment = useAppSelector(
     totalPriceSelector
   );
   const stripe = useStripe();
   const elements = useElements();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [card, setCard] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
 
   const onSubmit = async (
     e: React.FormEvent<HTMLFormElement>
@@ -65,17 +70,20 @@ export default function PaymentForm() {
           clientSecret,
           {
             payment_method: { card: cardElement },
-          },
+          }
         );
+
+      dispatch(clearCart([]));
     } catch (error) {
       console.log(error);
-    } finally{
+    } finally {
       setName(" ");
       setAddress(" ");
       setEmail(" ");
       cardElement?.clear();
+      // dispatch(clearCart([]));
       //
-      PopUpToast("Payment Successful", "success");
+      await PopUpToast("Payment Successful", "success");
     }
   };
 
@@ -99,7 +107,10 @@ export default function PaymentForm() {
                   placeholder="Full Name"
                   name="fullname"
                   aria-label="fullname"
-                  value={name} onChange={(e)=>setName(e.target.value)}
+                  value={name}
+                  onChange={(e) =>
+                    setName(e.target.value)
+                  }
                 />
               </div>
               <div className="flex justify-center items-center">
@@ -108,7 +119,10 @@ export default function PaymentForm() {
                   placeholder="Email"
                   name="email"
                   aria-label="email"
-                  value={email} onChange={(e)=>setEmail(e.target.value)}
+                  value={email}
+                  onChange={(e) =>
+                    setEmail(e.target.value)
+                  }
                 />
               </div>
               <div className="flex justify-center items-center">
@@ -118,7 +132,9 @@ export default function PaymentForm() {
                   name="address"
                   aria-label="address"
                   value={address}
-                  onChange={(e)=>setAddress(e.target.value)}
+                  onChange={(e) =>
+                    setAddress(e.target.value)
+                  }
                 />
               </div>
               {/* <div className="flex justify-center items-center">
