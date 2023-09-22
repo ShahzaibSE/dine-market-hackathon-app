@@ -10,6 +10,7 @@ import {
 } from "@/type";
 import { RootState } from "../store";
 import { isEqual } from "lodash";
+import { PopUpToast } from "@/lib/toast";
 
 export interface CartState {
   cartItems: CartItem[];
@@ -203,6 +204,7 @@ export const cartSlice = createSlice({
     },
     clearCart: (state, action: PayloadAction<CartItem[]>) => {
       state.cartItems = initialState.cartItems;
+      // PopUpToast("Payment Successful ✅", "success");
     }
   },
 });

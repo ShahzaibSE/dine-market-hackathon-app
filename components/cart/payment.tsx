@@ -24,11 +24,14 @@ import {
   clearCart,
   totalPriceSelector,
 } from "@/store/features/cartSlice";
-import toast from "react-hot-toast";
 import { redirect } from "next/dist/server/api-utils";
 import { useAppDispatch } from "@/store/store";
 import { useRouter } from "next/router";
-
+import {
+  toast,
+  ToastContainer,
+} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // const stripe = Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 // const appearance = { /* appearance */ };
@@ -38,6 +41,8 @@ import { useRouter } from "next/router";
 // paymentElement.mount('#payment-element');
 
 export default function PaymentForm() {
+  const toaster = () =>
+    toast("Payment Successful");
   const dispatch = useAppDispatch();
   const totalPayment = useAppSelector(
     totalPriceSelector
@@ -63,27 +68,34 @@ export default function PaymentForm() {
         }
       );
       const clientSecret = data;
-      console.log("Client Secret:", clientSecret);
+      // console.log("Client Secret:", clientSecret);
 
-      const result =
-        await stripe?.confirmCardPayment(
-          clientSecret,
-          {
-            payment_method: { card: cardElement },
-          }
-        );
+      await stripe?.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: { card: cardElement },
+        }
+      );
 
       dispatch(clearCart([]));
-    } catch (error) {
-      console.log(error);
-    } finally {
       setName(" ");
       setAddress(" ");
       setEmail(" ");
       cardElement?.clear();
+      console.log("Payment successful!");
+      toast.success("Payment Successfull ✅", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      // setName(" ");
+      // setAddress(" ");
+      // setEmail(" ");
+      // cardElement?.clear();
       // dispatch(clearCart([]));
       //
-      await PopUpToast("Payment Successful", "success");
+      // PopUpToast("Payment successful!", "success");
     }
   };
 
@@ -157,6 +169,7 @@ export default function PaymentForm() {
           </CardFooter>
         </form>
       </Card>
+      <ToastContainer autoClose={3000} />
     </div>
   );
 }
