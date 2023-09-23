@@ -39,7 +39,7 @@ export default function CartComponent() {
   console.log(totalPrice);
 
   useEffect(() => {
-    // dispatch(updateCartList(data as CartItem[]))
+    dispatch(updateCartList(data as CartItem[]));
   }, [data, dispatch]);
 
   return (
@@ -51,8 +51,8 @@ export default function CartComponent() {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
-        {cartItems.length > 0 ? (
+      {cartItems.length > 0 ? (
+        <div className="flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:items-end gap-10 xl:gap-2 xl:container">
           <div className="flex flex-col justify-between items-start gap-4 xl:flex-row xl:gap-8">
             <div className="flex flex-wrap justify-between items-center gap-3 max-h-full xl:w-4/5 overflow-scroll">
               {/* Items cart list */}
@@ -109,8 +109,19 @@ export default function CartComponent() {
               </div>
             </div>
           </div>
-        ) : null}
-      </div>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center xl:max-w-screen-xl">
+          <div
+            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status"
+          >
+            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+              Loading...
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
